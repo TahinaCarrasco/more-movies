@@ -1,0 +1,112 @@
+$color-blue: rgb(86, 166, 220);
+
+
+.container-cadastro {
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #ffffffe6;
+  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);
+  border-radius: 20px;
+
+  h1 {
+    padding: 10px;
+  }
+
+  .informativo-cadastro {
+    color: $color-blue;
+    font-size: 16px;
+  }
+  
+  .formulario-cadastro {
+    display: flex;
+    justify-content: space-around;
+    height: 80%;
+    margin-top: 1%;
+
+    .primeiro-passo {
+      width: 50%;
+      height: inherit;
+      border-right: 2px solid $color-blue;
+      align-self: center;
+      margin-left: 5%;
+
+    }
+
+    .segundo-passo {
+      width: 50%;
+      height: inherit;
+      align-self: center;
+      margin-left: 5%;     
+
+    }
+
+    .form-group {
+      padding-top: 2%;
+      width: 90%;
+      align-items: center;
+    }
+
+    span {
+      bottom: 10%;
+      color: $color-blue;
+      padding-right: 10%;
+    }
+  }
+
+  .checkbox-sexo {
+    display: flex;
+    
+    div {
+      margin-right: 15px;
+    }
+  }
+
+  .container-genero {
+    border-top: 1px solid #BABABA;
+    margin-right: 10%;
+    
+    .selecione-generos {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      padding: 10px 0;
+      
+      .form-check {
+        width: 50%;
+        text-align: start;
+        &:nth-of-type(1){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(2){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(3){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(4){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(5){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(6){
+          background: rgba(#BABABA, 0.3);
+        }
+      }
+    }
+  }
+}
+
+#proxima-etapa {
+  position: absolute;
+  height: 5%;
+  bottom: 20px;
+  right: 2%;
+  color: $color-blue !important;
+  cursor: pointer;
+}

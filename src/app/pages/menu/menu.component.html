@@ -1,0 +1,23 @@
+<menu>
+  <header class="header-menu">
+    <h1>More Movies
+      <i class="fas fa-film"></i>
+    </h1>
+    <div *ngIf="exibir" class="pesquisa-filmes">
+      <input
+        class="campo-busca"
+        type="text"
+        placeholder="Buscar por titulo, genero, diretor ou ator"
+        maxlength="50"
+        #textoParaBusca>
+      <button (click)="buscaFilmes(textoParaBusca.value)">
+          <i class="icon fas fa-search"></i>
+      </button>
+    </div>
+  </header>
+  <div *ngIf="exibir" class="link-menu">
+    <a>Home</a>
+    <a>Filmes</a>
+    <a>Perfil</a>
+  </div>
+</menu>

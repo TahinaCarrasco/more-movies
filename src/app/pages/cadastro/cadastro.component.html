@@ -1,0 +1,68 @@
+<section class="container-cadastro">
+  <h1>Insira seus dados</h1>
+  <span class="informativo-cadastro">
+    Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações
+  </span>
+  <section class="formulario-cadastro">
+    <form class="primeiro-passo">
+      <span>1º</span>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Nome Completo</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="João da Silva">
+      </div>
+      <div class="checkbox-sexo">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            <label class="form-check-label" for="exampleRadios1">
+              Feminino
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <label class="form-check-label" for="exampleRadios2">
+              Masculino
+            </label>
+          </div>
+        </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Data de Nascimento</label>
+        <input type="date" class="form-control" id="formGroupExampleInput2">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">E-mail</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="email@example.com">
+      </div>
+    </form>
+    <form class="segundo-passo">
+      <span>2º</span>
+      <div class="form-group">
+        <label for="formGroupExampleInput">Cadastre um ID</label>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="joao_silva" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Verificar</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2">Cadastre uma Senha</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2">
+        <small id="passwordHelpInline" class="text-muted">
+          Deve ter 8 a 20 caracteres.
+        </small>
+      </div>
+      <span>Selecione ao menos 3 generos</span>
+      <section class="container-genero">
+        <ul class="selecione-generos">
+          <li class="form-check" *ngFor="let genero of generos">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              {{genero}}
+            </label>
+          </li>
+        </ul>
+      </section>
+    </form>
+  </section>
+  <i id="proxima-etapa" class="fas fa-arrow-right"></i>
+</section>
