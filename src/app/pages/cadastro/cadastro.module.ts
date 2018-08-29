@@ -9,7 +9,9 @@ import { CadastroComponent } from './cadastro.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  declarations: [CadastroComponent],
+  declarations: [
+    CadastroComponent
+  ],
   exports: [CadastroComponent],
 })
 export class CadastroModule { }

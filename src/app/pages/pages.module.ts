@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AvaliacaoFilmesComponent } from './avaliacao-filmes/avaliacao-filmes.component';
 import { CadastroModule } from './cadastro/cadastro.module';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MenuModule } from './menu/menu.module';
 import { PagesComponent } from './pages.component';
+import { PagesRoutingModule } from './pages.routing.module';
 
 
 @NgModule({
   imports: [
     FormsModule,
     MenuModule,
-    CadastroModule
+    CadastroModule,
+    PagesRoutingModule
   ],
   declarations: [
     PagesComponent,
     LoginComponent,
-    HomeComponent,
+    AvaliacaoFilmesComponent
   ],
-  providers: [],
   exports: [
     PagesComponent
   ]

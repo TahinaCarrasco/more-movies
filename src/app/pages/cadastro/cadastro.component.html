@@ -3,12 +3,19 @@
   <span class="informativo-cadastro">
     Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações
   </span>
-  <section class="formulario-cadastro">
-    <form class="primeiro-passo">
+  <form (ngSubmit)="onSubmit(refForm)" #refForm="ngForm" class="formulario-cadastro">
+    <section class="primeiro-passo">
       <span>1º</span>
       <div class="form-group">
         <label for="formGroupExampleInput">Nome Completo</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="João da Silva">
+        <input
+          name="nomeCompleto"
+          type="text"
+          class="form-control"
+          id="nomeCompleto"
+          placeholder="João da Silva"
+          required
+          [(ngModel)]="usuario.nomeCompleto">
       </div>
       <div class="checkbox-sexo">
           <div class="form-check">
@@ -30,10 +37,19 @@
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">E-mail</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="email@example.com">
+        <input
+          name="email"
+          type="email"
+          class="form-control"
+          id="formGroupExampleInput2"
+          placeholder="email@example.com"
+          [(ngModel)]="usuario.email"
+          #emailPessoal="ngModel"
+          required
+          email>
       </div>
-    </form>
-    <form class="segundo-passo">
+    </section>
+    <section class="segundo-passo">
       <span>2º</span>
       <div class="form-group">
         <label for="formGroupExampleInput">Cadastre um ID</label>
@@ -62,7 +78,8 @@
           </li>
         </ul>
       </section>
-    </form>
-  </section>
-  <i id="proxima-etapa" class="fas fa-arrow-right"></i>
+    </section>
+    <button type="submit" id="proxima-etapa" class="fas fa-arrow-right" routerLink="/avaliacao-filmes"></button>
+    <a class="link-cadastro" routerLink="/avaliacao-filmes">Se cadastrar</a>
+  </form>
 </section>

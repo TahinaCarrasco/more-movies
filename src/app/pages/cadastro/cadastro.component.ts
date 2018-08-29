@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../models/usuario.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,9 +17,16 @@ export class CadastroComponent implements OnInit {
     'Ficção Científica'
   ];
 
+  usuario = new Usuario();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form) {
+    console.log('form', form.value);
+    console.log('aquiiiiiii', this.usuario);
   }
 
 }
