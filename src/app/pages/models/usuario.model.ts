@@ -1,4 +1,4 @@
-import { IsDate, IsEmail, IsString } from 'class-validator';
+import { IsArray, IsDate, IsEmail, IsString } from 'class-validator';
 
 export class Usuario {
 
@@ -12,12 +12,15 @@ export class Usuario {
   sexo: string;
 
   @IsDate()
-  dtNascimento: Date;
+  dtNasc: Date;
 
   @IsString()
   login: string;
 
   @IsString()
   senha: string;
+
+  @IsArray()
+  genero: Array<String>;
 
 }

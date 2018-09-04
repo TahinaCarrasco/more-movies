@@ -56,10 +56,20 @@ $color-blue: rgb(86, 166, 220);
       color: $color-blue;
       padding-right: 10%;
     }
+
+    .error {
+      font-size: 10px;
+      color: red;
+      
+      &.msg-sexo {
+        align-self: center;
+      }
+    }
   }
 
   .checkbox-sexo {
     display: flex;
+    margin-left: 20%;
     
     div {
       margin-right: 15px;

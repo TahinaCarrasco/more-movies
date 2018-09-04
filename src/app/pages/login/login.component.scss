@@ -29,42 +29,64 @@
 
     .form-group {
       padding-top: 5%;
+      height: 80%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .form-inline {
-      padding: 5%;
-      margin-left: 5%;
+    .inputs-login {
+      padding: 0 25px 0 15px;
 
-      >label {
-        width: 10%;
+      &::after{
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      .form-inline {
+        
+        display: flex;
+        align-items: center;
         justify-content: flex-end;
+        margin-bottom: 15px;
+
+        label{
+          justify-content: flex-end;
+          margin-right: 10px;
+        }
+        input{
+          width: 80%;
+          margin: 0 !important;
+        }
       }
 
-      >input {
-        font-size: 110%;
-        width: 70%;
-      }
-
-      >small {
-        margin-left: 50%;
-        font-size: 12px;
+      .error {
+        font-size: 10px;
+        color: red;
       }
     }
   }
 
   .acesso-conta {
-    position: relative;
-    width: 50%;
-    height: 20%;
-    left: 25%;
-    display: block;
-    top: 60%;
+    text-align: center;
+
     a {
+      display: block;
       font-size: 0.8em;
+      cursor: pointer;
     }
+
+    button {
+      display: inline-block;
+      width: 50%;
+    }
+
   }
 }
 
 .link-cadastro {
   margin-right: 10px;
+  cursor: pointer;
 }

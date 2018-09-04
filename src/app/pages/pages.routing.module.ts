@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from 'src/app/pages/cadastro/cadastro.component';
 import { LoginComponent } from 'src/app/pages/login/login.component';
 import { AvaliacaoFilmesComponent } from './avaliacao-filmes/avaliacao-filmes.component';
+import { HomeComponent } from './home/home.component';
 
 
 const pageRoutes: Routes = [
@@ -22,14 +23,13 @@ const pageRoutes: Routes = [
   {
     path: 'avaliacao-filmes',
     component: AvaliacaoFilmesComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 
-
-/*  Esta class routing representa todas as rotas presentes neste arquivo,
-    ela representa um Module de Rotas (RouterModule).
-    Declaramos que essas rotas são ForChild pois são as rotas secundarias da aplicação.
-*/
 @NgModule({
   imports: [RouterModule.forChild(pageRoutes)],
   exports: [RouterModule]
