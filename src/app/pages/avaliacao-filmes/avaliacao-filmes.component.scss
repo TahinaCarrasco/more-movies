@@ -1,70 +1,12 @@
-.container-login {
+.container-avaliacao-filmes {
   position: absolute;
-  width: 40%;
-  height: 70%;
-  top: 60%;
+  width: 90%;
+  height: 80%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-
-  .text-login {
-    position: relative;
-    bottom: 10px;
-    z-index: 10;
-    font-size: 1.2em;
-    font-family: "Roboto-Light", sans-serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: black;
-    top: 10px;
-  }
-
-  .login-usuario {
-    position: absolute;
-    width: 100%;
-    height: 80%;
-    background-color: #ffffffe6;
-    box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);
-    border-radius: 20px;
-
-    .form-group {
-      padding-top: 5%;
-    }
-
-    .form-inline {
-      padding: 5%;
-      margin-left: 5%;
-
-      >label {
-        width: 10%;
-        justify-content: flex-end;
-      }
-
-      >input {
-        font-size: 110%;
-        width: 70%;
-      }
-
-      >small {
-        margin-left: 50%;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .acesso-conta {
-    position: relative;
-    width: 50%;
-    height: 20%;
-    left: 25%;
-    display: block;
-    top: 60%;
-    a {
-      font-size: 0.8em;
-    }
-  }
-}
-
-.link-cadastro {
-  margin-right: 10px;
+  background-color: #ffffffe6;
+  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);
+  border-radius: 20px; 
 }
