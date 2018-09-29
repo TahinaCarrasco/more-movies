@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -27,18 +27,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
 
-    if (form.valid && !this.postLogin()) {
-      this.postLogin();
-      this.router.navigate(['/home']);
+    if (form.valid) {
+      this.postLogin(this.usuario.email, this.usuario.senha);
     }
   }
 
-  postLogin(): Object {
+  postLogin(email: string, senha: string) {
 
-    const url = `https://more-movies.000webhostapp.com/ajax/login.php`;
+    const url = `http://200.98.71.158:888/tcc/api/usuario/login.php`;
+    const params = new HttpParams({ fromString: `login=${email}&senha=${senha}` });
 
-    // Solução temporaria até a API trazer as repostas certas e se sucesses ou não, apresentei no alert para ficar mais visivel.
-    return this.http.post(url, JSON.stringify(this.usuario)).subscribe(response => alert(JSON.stringify(response)));
+    this.http.get(url, { params }).subscribe(response => {
+      (!response) ? this.router.navigate(['/home']) : alert('ruim');
+    });
   }
 
 }

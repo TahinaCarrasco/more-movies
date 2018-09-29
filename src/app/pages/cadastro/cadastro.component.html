@@ -7,20 +7,17 @@
     <section class="primeiro-passo">
       <span>1º</span>
       <div class="form-group">
-        <label for="form-control">Nome Completo</label>
         <input
           name="nomeCompleto"
           type="text"
           class="form-control"
           id="nomeCompleto"
-          placeholder="João da Silva"
+          placeholder="Nome Completo"
           required
-          [(ngModel)]="usuario.nomeCompleto">
-        <label for="nomeCompleto" class="error" *ngIf="!usuario.nomeCompleto && submit">
-          Campo Obrigatório*
-        </label>
+          [(ngModel)]="usuario.nomeCompleto"
+          [class.has-error]="!usuario.nomeCompleto && submit">
       </div>
-      <div class="checkbox-sexo" id="tipo-sexo">
+      <div class="checkbox-sexo" id="tipo-sexo" [class.has-error-sexo]="!usuario.sexo && submit">
           <div class="form-check">
             <input
               class="form-check-input"
@@ -48,97 +45,66 @@
               Masculino
             </label>
           </div>
-          <label for="tipo-sexo" class="error msg-sexo" *ngIf="!usuario.sexo && submit">
-            Campo Obrigatório*
-          </label>
         </div>
       <div class="form-group">
-        <label for="formGroupExampleInputDate">Data de Nascimento</label>
+        <label for="formGroupExampleInputDate" class="data-nascimento">Data de Nascimento</label>
         <input
           type="date"
           class="form-control"
           id="formGroupExampleInputDate"
           name="dataNascimento"
           [(ngModel)]="usuario.dtNasc"
-          required>
-          <label for="formGroupExampleInputDate" class="error msg-sexo" *ngIf="!usuario.dtNasc && submit">
-            Campo Obrigatório*
-          </label>
+          required
+          [class.has-error]="!usuario.dtNasc && submit">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInputEmail">E-mail</label>
         <input
           name="email"
           type="email"
           class="form-control"
           id="formGroupExampleInputEmail"
-          placeholder="email@example.com"
+          placeholder="E-mail"
           [(ngModel)]="usuario.email"
           required
-          email>
-        <label for="formGroupExampleInputEmail" class="error" *ngIf="!usuario.email && submit">
-          Campo Obrigatório*
-        </label>
-      </div>
-    </section>
-    <section class="segundo-passo">
-      <span>2º</span>
-      <div class="form-group">
-        <label for="formGroupExampleInput">Cadastre um ID</label>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            id="idUsuario"
-            class="form-control"
-            placeholder="joao_silva"
-            aria-label="Recipient's username"
-            aria-describedby="button-addon2"
-            name="idUsuario"
-            [(ngModel)]="usuario.login"
-            required>
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Verificar</button>
-          </div>
-          <label for="idUsuario" class="error" *ngIf="!usuario.login && submit">
-            Campo Obrigatório*
-          </label>
-        </div>
+          email
+          [class.has-error]="!usuario.email && submit">
       </div>
       <div class="form-group">
-        <label for="formGroupExampleInputSenha">Cadastre uma Senha</label>
         <input
           type="text"
           class="form-control"
           id="formGroupExampleInputSenha"
           name="senha"
+          placeholder="Cadastre uma Senha"
           [(ngModel)]="usuario.senha"
-          required>
+          required
+          [class.has-error]="!usuario.senha && submit">
         <small id="passwordHelpInline" class="text-muted">
           Deve ter 8 a 20 caracteres.
         </small>
-        <label for="formGroupExampleInputSenha" class="error" *ngIf="!usuario.senha && submit">
-          Campo Obrigatório*
-        </label>
       </div>
-      <span>Selecione ao menos 3 generos</span>
+    </section>
+    <section class="segundo-passo">
+      <span>2º</span>
       <section class="container-genero">
+        <span [class.has-erro-genero]="(!usuario.idGeneros || usuario.idGeneros.length < 3) && submit">
+          Selecione ao menos 3 generos
+        </span>
         <ul class="selecione-generos">
-          <li class="form-check" *ngFor="let genero of generos">
+          <li
+            class="form-check"
+            *ngFor="let isGenero of isGeneros; let i = index">
             <input
               class="form-check-input"
               type="checkbox"
-              value=""
               id="generosFilmes"
-              (click)="setGenero(genero)"
+              (click)="setGenero(isGenero)"
               required>
             <label class="form-check-label" for="generosFilmes">
-              {{genero}}
+              {{isGenero.genero}}
             </label>
           </li>
         </ul>
-        <label for="generosFilmes" class="error" *ngIf="(!usuario.genero || usuario.genero.length < 3) && submit">
-          Escolha no mínimo 3
-        </label>
       </section>
     </section>
     <button type="submit" id="proxima-etapa" class="fas fa-arrow-right"></button>

@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms/src/forms';
 import { Router } from '@angular/router';
 import { Validator } from 'class-validator';
 import { Usuario } from '../models/usuario.model';
+import { Genero } from './../models/gerero.model';
 
 @Component({
   selector: 'app-cadastro',
@@ -12,14 +13,7 @@ import { Usuario } from '../models/usuario.model';
 })
 export class CadastroComponent implements OnInit {
 
-  generos = [
-    'Ação',
-    'Aventura',
-    'Comédia',
-    'Comédia Romântica',
-    'Drama',
-    'Ficção Científica'
-  ];
+  isGeneros = new Array<Genero>();
 
   usuario = new Usuario();
   formValid = false;
@@ -32,8 +26,11 @@ export class CadastroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.validator.isEmpty(this.usuario.genero)) {
-      this.usuario.genero = new Array<String>();
+
+    this.carregaGeneros();
+
+    if (this.validator.isEmpty(this.usuario.idGeneros)) {
+      this.usuario.idGeneros = new Array<String>();
     }
   }
 
@@ -41,18 +38,20 @@ export class CadastroComponent implements OnInit {
     this.usuario.sexo = sexo;
   }
 
-  setGenero(genero: string): void {
-    this.usuario.genero.push(genero);
+  setGenero(isGenero: Genero): void {
+    this.usuario.idGeneros.push(isGenero.id_genero);
   }
 
   enviarDadosCadastrados(): void {
-    const url = `https://more-movies.000webhostapp.com/ajax/cadastro_save.php`;
+
+    const url = `http://200.98.71.158:888/tcc/api/usuario/create.php`;
 
     this.http.post(url, JSON.stringify(this.usuario))
       .subscribe(dados => console.log('sucesso', dados));
   }
 
   onSubmit(form: NgForm): void {
+
     this.formValid = form.valid;
     this.submit = true;
 
@@ -64,6 +63,22 @@ export class CadastroComponent implements OnInit {
   }
 
   get isFormValid(): boolean {
-    return (this.formValid && this.usuario.genero.length >= 3);
+    return (this.formValid && this.usuario.idGeneros.length >= 3);
   }
+
+  carregaGeneros() {
+
+    const url = `http://200.98.71.158:888/tcc/api/genero/`;
+
+    this.http.get(url).subscribe((dados: Array<Genero>) => {
+
+      dados.forEach((dado: Genero) => {
+        this.isGeneros.push(dado);
+      });
+
+    }, error => {
+      console.log('Erro ao Carregar Generos', error);
+    });
+  }
+
 }

@@ -21,6 +21,6 @@ export class Usuario {
   senha: string;
 
   @IsArray()
-  genero: Array<String>;
+  idGeneros: Array<String>;
 
 }

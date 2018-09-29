@@ -16,17 +16,17 @@
 
       <section class="inputs-login">
         <div class="form-inline">
-          <label for="idUsuario">ID</label>
+          <label for="emailUsuario">E-mail</label>
           <input
             class="form-control mx-sm-3"
-            id="idUsuario"
+            id="emailUsuario"
             type="text"
-            placeholder="Usuario"
+            placeholder="E-mail"
             autocomplete="off"
-            name="login"
-            [(ngModel)]="usuario.login"
+            name="email"
+            [(ngModel)]="usuario.email"
             required>
-            <label for="idUsuario" class="error" *ngIf="!usuario.login && formLogin.submitted">
+            <label for="emailUsuario" class="error" *ngIf="!usuario.email && formLogin.submitted">
               Campo obrigatório*
             </label>
         </div>

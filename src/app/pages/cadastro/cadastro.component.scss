@@ -14,7 +14,8 @@ $color-blue: rgb(86, 166, 220);
   border-radius: 20px;
 
   h1 {
-    padding: 10px;
+    padding: 0;
+    font-size: 30px;
   }
 
   .informativo-cadastro {
@@ -25,16 +26,22 @@ $color-blue: rgb(86, 166, 220);
   .formulario-cadastro {
     display: flex;
     justify-content: space-around;
-    height: 80%;
-    margin-top: 1%;
+    padding-top: 20px;
 
+    label {
+      font-size: 15px;
+
+      &.data-nascimento {
+        width: 100%;
+        text-align: left;
+      }
+    }
+  
     .primeiro-passo {
       width: 50%;
-      height: inherit;
       border-right: 2px solid $color-blue;
       align-self: center;
       margin-left: 5%;
-
     }
 
     .segundo-passo {
@@ -49,6 +56,10 @@ $color-blue: rgb(86, 166, 220);
       padding-top: 2%;
       width: 90%;
       align-items: center;
+
+      .text-muted{
+        font-size: 15px;
+      }
     }
 
     span {
@@ -57,19 +68,20 @@ $color-blue: rgb(86, 166, 220);
       padding-right: 10%;
     }
 
-    .error {
-      font-size: 10px;
-      color: red;
-      
-      &.msg-sexo {
-        align-self: center;
-      }
+    .has-error {
+      border-color: red; 
     }
+
+    .has-error-sexo{
+      color: red;
+    }
+
   }
 
   .checkbox-sexo {
     display: flex;
-    margin-left: 20%;
+    justify-content: center;
+    margin-right: 5%;
     
     div {
       margin-right: 15px;
@@ -79,6 +91,13 @@ $color-blue: rgb(86, 166, 220);
   .container-genero {
     border-top: 1px solid #BABABA;
     margin-right: 10%;
+
+    span {
+      font-size: 15px;
+      &.has-erro-genero {
+        color: red;
+      }
+    }
     
     .selecione-generos {
       display: flex;
@@ -105,6 +124,42 @@ $color-blue: rgb(86, 166, 220);
           background: rgba(#BABABA, 0.3);
         }
         &:nth-of-type(6){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(7){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(8){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(9){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(10){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(11){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(12){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(13){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(14){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(15){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(16){
+          background: rgba(#FFF, 0.3);
+        }
+        &:nth-of-type(17){
+          background: rgba(#BABABA, 0.3);
+        }
+        &:nth-of-type(18){
           background: rgba(#BABABA, 0.3);
         }
       }
