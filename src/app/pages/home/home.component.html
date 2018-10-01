@@ -1,7 +1,11 @@
 
-<!-- <div *ngFor="let books of filmes$ | async">
-  home works!
-</div> -->
 <section class="container-home">
-   <h1>Aqui vira a home </h1>
+  <h3>Avalie os Filmes abaixo</h3>
+
+  <div class="cards-filmes">
+    <div *ngFor="let filme of filmes">
+      <img class="card-filme" title="{{filme.title}} - {{filme.overview}}" src="https://image.tmdb.org/t/p/w200/{{filme.poster_path}}"/>
+        <!-- {{filme.title}} -->
+    </div>
+  </div>
 </section>
