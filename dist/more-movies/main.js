@@ -300,7 +300,7 @@ var AvaliacaoFilmesModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-cadastro\">\n  <h1>Insira seus dados</h1>\n  <span class=\"informativo-cadastro\">\n    Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações\n  </span>\n  <form (ngSubmit)=\"onSubmit(refForm)\" #refForm=\"ngForm\" class=\"formulario-cadastro\">\n    <section class=\"primeiro-passo\">\n      <span>1º</span>\n      <div class=\"form-group\">\n        <label for=\"form-control\">Nome Completo</label>\n        <input\n          name=\"nomeCompleto\"\n          type=\"text\"\n          class=\"form-control\"\n          id=\"nomeCompleto\"\n          placeholder=\"João da Silva\"\n          required\n          [(ngModel)]=\"usuario.nomeCompleto\">\n        <label for=\"nomeCompleto\" class=\"error\" *ngIf=\"!usuario.nomeCompleto && submit\">\n          Campo Obrigatório*\n        </label>\n      </div>\n      <div class=\"checkbox-sexo\" id=\"tipo-sexo\">\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\"\n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios1\"\n              value=\"feminino\"\n              #feminino\n              (click)= \"setSexoSelecionado(feminino.value)\"\n              required>\n            <label class=\"form-check-label\" for=\"exampleRadios1\">\n              Feminino\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\" \n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios2\"\n              value=\"masculino\"\n              #masculino\n              (click)= \"setSexoSelecionado(masculino.value)\">\n            <label class=\"form-check-label\" for=\"exampleRadios2\">\n              Masculino\n            </label>\n          </div>\n          <label for=\"tipo-sexo\" class=\"error msg-sexo\" *ngIf=\"!usuario.sexo && submit\">\n            Campo Obrigatório*\n          </label>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputDate\">Data de Nascimento</label>\n        <input\n          type=\"date\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputDate\"\n          name=\"dataNascimento\"\n          [(ngModel)]=\"usuario.dtNasc\"\n          required>\n          <label for=\"formGroupExampleInputDate\" class=\"error msg-sexo\" *ngIf=\"!usuario.dtNasc && submit\">\n            Campo Obrigatório*\n          </label>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputEmail\">E-mail</label>\n        <input\n          name=\"email\"\n          type=\"email\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputEmail\"\n          placeholder=\"email@example.com\"\n          [(ngModel)]=\"usuario.email\"\n          required\n          email>\n        <label for=\"formGroupExampleInputEmail\" class=\"error\" *ngIf=\"!usuario.email && submit\">\n          Campo Obrigatório*\n        </label>\n      </div>\n    </section>\n    <section class=\"segundo-passo\">\n      <span>2º</span>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInput\">Cadastre um ID</label>\n        <div class=\"input-group mb-3\">\n          <input\n            type=\"text\"\n            id=\"idUsuario\"\n            class=\"form-control\"\n            placeholder=\"joao_silva\"\n            aria-label=\"Recipient's username\"\n            aria-describedby=\"button-addon2\"\n            name=\"idUsuario\"\n            [(ngModel)]=\"usuario.login\"\n            required>\n          <div class=\"input-group-append\">\n            <button class=\"btn btn-outline-secondary\" type=\"button\" id=\"button-addon2\">Verificar</button>\n          </div>\n          <label for=\"idUsuario\" class=\"error\" *ngIf=\"!usuario.login && submit\">\n            Campo Obrigatório*\n          </label>\n        </div>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputSenha\">Cadastre uma Senha</label>\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputSenha\"\n          name=\"senha\"\n          [(ngModel)]=\"usuario.senha\"\n          required>\n        <small id=\"passwordHelpInline\" class=\"text-muted\">\n          Deve ter 8 a 20 caracteres.\n        </small>\n        <label for=\"formGroupExampleInputSenha\" class=\"error\" *ngIf=\"!usuario.senha && submit\">\n          Campo Obrigatório*\n        </label>\n      </div>\n      <span>Selecione ao menos 3 generos</span>\n      <section class=\"container-genero\">\n        <ul class=\"selecione-generos\">\n          <li class=\"form-check\" *ngFor=\"let genero of generos\">\n            <input\n              class=\"form-check-input\"\n              type=\"checkbox\"\n              value=\"\"\n              id=\"generosFilmes\"\n              (click)=\"setGenero(genero)\"\n              required>\n            <label class=\"form-check-label\" for=\"generosFilmes\">\n              {{genero}}\n            </label>\n          </li>\n        </ul>\n        <label for=\"generosFilmes\" class=\"error\" *ngIf=\"(!usuario.genero || usuario.genero.length < 3) && submit\">\n          Escolha no mínimo 3\n        </label>\n      </section>\n    </section>\n    <button type=\"submit\" id=\"proxima-etapa\" class=\"fas fa-arrow-right\"></button>\n  </form>\n</section>\n"
+module.exports = "<section class=\"container-cadastro\">\n  <h1>Insira seus dados</h1>\n  <span class=\"informativo-cadastro\">\n    Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações\n  </span>\n  <form (ngSubmit)=\"onSubmit(refForm)\" #refForm=\"ngForm\" class=\"formulario-cadastro\">\n    <section class=\"primeiro-passo\">\n      <span>1º</span>\n      <div class=\"form-group\">\n        <input\n          name=\"nomeCompleto\"\n          type=\"text\"\n          class=\"form-control\"\n          id=\"nomeCompleto\"\n          placeholder=\"Nome Completo\"\n          required\n          [(ngModel)]=\"usuario.nomeCompleto\"\n          [class.has-error]=\"!usuario.nomeCompleto && submit\">\n      </div>\n      <div class=\"checkbox-sexo\" id=\"tipo-sexo\" [class.has-error-sexo]=\"!usuario.sexo && submit\">\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\"\n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios1\"\n              value=\"feminino\"\n              #feminino\n              (click)= \"setSexoSelecionado(feminino.value)\"\n              required>\n            <label class=\"form-check-label\" for=\"exampleRadios1\">\n              Feminino\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\" \n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios2\"\n              value=\"masculino\"\n              #masculino\n              (click)= \"setSexoSelecionado(masculino.value)\">\n            <label class=\"form-check-label\" for=\"exampleRadios2\">\n              Masculino\n            </label>\n          </div>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputDate\" class=\"data-nascimento\">Data de Nascimento</label>\n        <input\n          type=\"date\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputDate\"\n          name=\"dataNascimento\"\n          [(ngModel)]=\"usuario.dtNasc\"\n          required\n          [class.has-error]=\"!usuario.dtNasc && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          name=\"email\"\n          type=\"email\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputEmail\"\n          placeholder=\"E-mail\"\n          [(ngModel)]=\"usuario.email\"\n          required\n          email\n          [class.has-error]=\"!usuario.email && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputSenha\"\n          name=\"senha\"\n          placeholder=\"Cadastre uma Senha\"\n          [(ngModel)]=\"usuario.senha\"\n          required\n          [class.has-error]=\"!usuario.senha && submit\">\n        <small id=\"passwordHelpInline\" class=\"text-muted\">\n          Deve ter 8 a 20 caracteres.\n        </small>\n      </div>\n    </section>\n    <section class=\"segundo-passo\">\n      <span>2º</span>\n      <section class=\"container-genero\">\n        <span [class.has-erro-genero]=\"(!usuario.idGeneros || usuario.idGeneros.length < 3) && submit\">\n          Selecione ao menos 3 generos\n        </span>\n        <ul class=\"selecione-generos\">\n          <li\n            class=\"form-check\"\n            *ngFor=\"let isGenero of isGeneros; let i = index\">\n            <input\n              class=\"form-check-input\"\n              type=\"checkbox\"\n              id=\"generosFilmes\"\n              (click)=\"setGenero(isGenero)\"\n              required>\n            <label class=\"form-check-label\" for=\"generosFilmes\">\n              {{isGenero.genero}}\n            </label>\n          </li>\n        </ul>\n      </section>\n    </section>\n    <button type=\"submit\" id=\"proxima-etapa\" class=\"fas fa-arrow-right\"></button>\n  </form>\n</section>\n"
 
 /***/ }),
 
@@ -311,7 +311,7 @@ module.exports = "<section class=\"container-cadastro\">\n  <h1>Insira seus dado
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-cadastro {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n  .container-cadastro h1 {\n    padding: 10px; }\n  .container-cadastro .informativo-cadastro {\n    color: #56a6dc;\n    font-size: 16px; }\n  .container-cadastro .formulario-cadastro {\n    display: flex;\n    justify-content: space-around;\n    height: 80%;\n    margin-top: 1%; }\n  .container-cadastro .formulario-cadastro .primeiro-passo {\n      width: 50%;\n      height: inherit;\n      border-right: 2px solid #56a6dc;\n      -ms-grid-row-align: center;\n          align-self: center;\n      margin-left: 5%; }\n  .container-cadastro .formulario-cadastro .segundo-passo {\n      width: 50%;\n      height: inherit;\n      -ms-grid-row-align: center;\n          align-self: center;\n      margin-left: 5%; }\n  .container-cadastro .formulario-cadastro .form-group {\n      padding-top: 2%;\n      width: 90%;\n      align-items: center; }\n  .container-cadastro .formulario-cadastro span {\n      bottom: 10%;\n      color: #56a6dc;\n      padding-right: 10%; }\n  .container-cadastro .formulario-cadastro .error {\n      font-size: 10px;\n      color: red; }\n  .container-cadastro .formulario-cadastro .error.msg-sexo {\n        -ms-grid-row-align: center;\n            align-self: center; }\n  .container-cadastro .checkbox-sexo {\n    display: flex;\n    margin-left: 20%; }\n  .container-cadastro .checkbox-sexo div {\n      margin-right: 15px; }\n  .container-cadastro .container-genero {\n    border-top: 1px solid #BABABA;\n    margin-right: 10%; }\n  .container-cadastro .container-genero .selecione-generos {\n      display: flex;\n      flex-wrap: wrap;\n      width: 100%;\n      padding: 10px 0; }\n  .container-cadastro .container-genero .selecione-generos .form-check {\n        width: 50%;\n        text-align: start; }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(1) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(2) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(3) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(4) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(5) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(6) {\n          background: rgba(186, 186, 186, 0.3); }\n  #proxima-etapa {\n  position: absolute;\n  height: 5%;\n  bottom: 20px;\n  right: 2%;\n  color: #56a6dc !important;\n  cursor: pointer; }\n"
+module.exports = ".container-cadastro {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n  .container-cadastro h1 {\n    padding: 0;\n    font-size: 30px; }\n  .container-cadastro .informativo-cadastro {\n    color: #56a6dc;\n    font-size: 16px; }\n  .container-cadastro .formulario-cadastro {\n    display: flex;\n    justify-content: space-around;\n    padding-top: 20px; }\n  .container-cadastro .formulario-cadastro label {\n      font-size: 15px; }\n  .container-cadastro .formulario-cadastro label.data-nascimento {\n        width: 100%;\n        text-align: left; }\n  .container-cadastro .formulario-cadastro .primeiro-passo {\n      width: 50%;\n      border-right: 2px solid #56a6dc;\n      -ms-grid-row-align: center;\n          align-self: center;\n      margin-left: 5%; }\n  .container-cadastro .formulario-cadastro .segundo-passo {\n      width: 50%;\n      height: inherit;\n      -ms-grid-row-align: center;\n          align-self: center;\n      margin-left: 5%; }\n  .container-cadastro .formulario-cadastro .form-group {\n      padding-top: 2%;\n      width: 90%;\n      align-items: center; }\n  .container-cadastro .formulario-cadastro .form-group .text-muted {\n        font-size: 15px; }\n  .container-cadastro .formulario-cadastro span {\n      bottom: 10%;\n      color: #56a6dc;\n      padding-right: 10%; }\n  .container-cadastro .formulario-cadastro .has-error {\n      border-color: red; }\n  .container-cadastro .formulario-cadastro .has-error-sexo {\n      color: red; }\n  .container-cadastro .checkbox-sexo {\n    display: flex;\n    justify-content: center;\n    margin-right: 5%; }\n  .container-cadastro .checkbox-sexo div {\n      margin-right: 15px; }\n  .container-cadastro .container-genero {\n    border-top: 1px solid #BABABA;\n    margin-right: 10%; }\n  .container-cadastro .container-genero span {\n      font-size: 15px; }\n  .container-cadastro .container-genero span.has-erro-genero {\n        color: red; }\n  .container-cadastro .container-genero .selecione-generos {\n      display: flex;\n      flex-wrap: wrap;\n      width: 100%;\n      padding: 10px 0; }\n  .container-cadastro .container-genero .selecione-generos .form-check {\n        width: 50%;\n        text-align: start; }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(1) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(2) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(3) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(4) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(5) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(6) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(7) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(8) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(9) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(10) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(11) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(12) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(13) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(14) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(15) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(16) {\n          background: rgba(255, 255, 255, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(17) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(18) {\n          background: rgba(186, 186, 186, 0.3); }\n  .container-cadastro .container-genero .selecione-generos .form-check:nth-of-type(19) {\n          background: rgba(255, 255, 255, 0.3); }\n  #proxima-etapa {\n  position: absolute;\n  height: 5%;\n  bottom: 20px;\n  right: 2%;\n  color: #56a6dc !important;\n  cursor: pointer; }\n"
 
 /***/ }),
 
@@ -350,31 +350,25 @@ var CadastroComponent = /** @class */ (function () {
         this.http = http;
         this.validator = validator;
         this.router = router;
-        this.generos = [
-            'Ação',
-            'Aventura',
-            'Comédia',
-            'Comédia Romântica',
-            'Drama',
-            'Ficção Científica'
-        ];
+        this.isGeneros = new Array();
         this.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"]();
         this.formValid = false;
         this.submit = false;
     }
     CadastroComponent.prototype.ngOnInit = function () {
-        if (this.validator.isEmpty(this.usuario.genero)) {
-            this.usuario.genero = new Array();
+        this.carregaGeneros();
+        if (this.validator.isEmpty(this.usuario.idGeneros)) {
+            this.usuario.idGeneros = new Array();
         }
     };
     CadastroComponent.prototype.setSexoSelecionado = function (sexo) {
         this.usuario.sexo = sexo;
     };
-    CadastroComponent.prototype.setGenero = function (genero) {
-        this.usuario.genero.push(genero);
+    CadastroComponent.prototype.setGenero = function (isGenero) {
+        this.usuario.idGeneros.push(isGenero.id_genero);
     };
     CadastroComponent.prototype.enviarDadosCadastrados = function () {
-        var url = "https://more-movies.000webhostapp.com/ajax/cadastro_save.php";
+        var url = "http://200.98.71.158:888/tcc/api/usuario/create.php";
         this.http.post(url, JSON.stringify(this.usuario))
             .subscribe(function (dados) { return console.log('sucesso', dados); });
     };
@@ -388,11 +382,22 @@ var CadastroComponent = /** @class */ (function () {
     };
     Object.defineProperty(CadastroComponent.prototype, "isFormValid", {
         get: function () {
-            return (this.formValid && this.usuario.genero.length >= 3);
+            return (this.formValid && this.usuario.idGeneros.length >= 3);
         },
         enumerable: true,
         configurable: true
     });
+    CadastroComponent.prototype.carregaGeneros = function () {
+        var _this = this;
+        var url = "http://200.98.71.158:888/tcc/api/genero/";
+        this.http.get(url).subscribe(function (dados) {
+            dados.forEach(function (dado) {
+                _this.isGeneros.push(dado);
+            });
+        }, function (error) {
+            console.log('Erro ao Carregar Generos', error);
+        });
+    };
     CadastroComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-cadastro',
@@ -464,7 +469,7 @@ var CadastroModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<!-- <div *ngFor=\"let books of filmes$ | async\">\n  home works!\n</div> -->\n<section class=\"container-home\">\n   <h1>Aqui vira a home </h1>\n</section>"
+module.exports = "\n<section class=\"container-home\">\n  <h3>Avalie os Filmes abaixo</h3>\n\n  <div class=\"cards-filmes\">\n    <div *ngFor=\"let filme of filmes\">\n      <img class=\"card-filme\" title=\"{{filme.title}} - {{filme.overview}}\" src=\"https://image.tmdb.org/t/p/w200/{{filme.poster_path}}\"/>\n        <!-- {{filme.title}} -->\n    </div>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -475,7 +480,7 @@ module.exports = "\n<!-- <div *ngFor=\"let books of filmes$ | async\">\n  home w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-home {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n"
+module.exports = ".container-home {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n  .container-home .cards-filmes {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around; }\n  .container-home .cards-filmes .card-filme {\n      width: 130px;\n      height: 180px;\n      margin: 10px; }\n"
 
 /***/ }),
 
@@ -489,7 +494,8 @@ module.exports = ".container-home {\n  position: absolute;\n  width: 90%;\n  hei
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -500,20 +506,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = /** @class */ (function () {
-    // filmes$: Observable<any>;
-    function HomeComponent() {
+    function HomeComponent(httpClient) {
+        this.httpClient = httpClient;
+        this.filmes = new Array();
     }
     HomeComponent.prototype.ngOnInit = function () {
-        // this.filmes$ = this.httpClient.get('/users');
+        this.carregaFilmes();
+    };
+    HomeComponent.prototype.carregaFilmes = function () {
+        var _this = this;
+        var url = "https://api.themoviedb.org/3/discover/movie?api_key=3cc731c8c870d7553d87571bd2486f68&language=pt-BR";
+        this.httpClient.get(url).subscribe(function (dados) {
+            dados.results.forEach(function (item) {
+                _this.filmes.push(item);
+            });
+        });
+        console.log('aqui', this.filmes);
     };
     HomeComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/pages/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/pages/home/home.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -573,7 +591,7 @@ var HomeModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-login\">\n  \n  <div class=\"login-usuario\">\n\n    <span class=\"text-login\">\n      Faça login em sua conta More Movies\n      <i class=\"fas fa-film\"></i>\n    </span>\n\n    <form (ngSubmit)=\"onSubmit(formLogin)\" #formLogin=\"ngForm\" class=\"form-group\">\n\n      <a class=\"link-cadastro\" routerLink=\"/cadastro\">\n        Se cadastrar\n        <i class=\"far fa-address-card\"></i>\n      </a>\n\n      <section class=\"inputs-login\">\n        <div class=\"form-inline\">\n          <label for=\"idUsuario\">ID</label>\n          <input\n            class=\"form-control mx-sm-3\"\n            id=\"idUsuario\"\n            type=\"text\"\n            placeholder=\"Usuario\"\n            autocomplete=\"off\"\n            name=\"login\"\n            [(ngModel)]=\"usuario.login\"\n            required>\n            <label for=\"idUsuario\" class=\"error\" *ngIf=\"!usuario.login && formLogin.submitted\">\n              Campo obrigatório*\n            </label>\n        </div>\n  \n        <div class=\"form-inline\">    \n          <label for=\"senhaUsuario\">Senha</label>\n          <input\n            type=\"password\"\n            id=\"senhaUsuario\"\n            class=\"form-control mx-sm-3\"\n            aria-describedby=\"passwordHelpInline\"\n            autocomplete=\"off\"\n            name=\"senha\"\n            [(ngModel)]=\"usuario.senha\"\n            required>\n          <small id=\"passwordHelpInline\" class=\"text-muted\">\n            Deve ter 8 a 20 caracteres.\n          </small>\n          <label for=\"senhaUsuario\" class=\"error\" *ngIf=\"!usuario.senha && formLogin.submitted\">\n            Campo obrigatório*\n          </label>\n        </div>\n      </section>\n\n      <footer class=\"acesso-conta\">\n        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" >\n          Entrar\n        </button>\n        <a routerLink=\"/##\">Esqueci minha senha</a>\n      </footer>\n\n    </form>\n  </div>\n</section>"
+module.exports = "<section class=\"container-login\">\n  \n  <div class=\"login-usuario\">\n\n    <span class=\"text-login\">\n      Faça login em sua conta More Movies\n      <i class=\"fas fa-film\"></i>\n    </span>\n\n    <form (ngSubmit)=\"onSubmit(formLogin)\" #formLogin=\"ngForm\" class=\"form-group\">\n\n      <a class=\"link-cadastro\" routerLink=\"/cadastro\">\n        Se cadastrar\n        <i class=\"far fa-address-card\"></i>\n      </a>\n\n      <section class=\"inputs-login\">\n        <div class=\"form-inline\">\n          <label for=\"emailUsuario\">E-mail</label>\n          <input\n            class=\"form-control mx-sm-3\"\n            id=\"emailUsuario\"\n            type=\"text\"\n            placeholder=\"E-mail\"\n            autocomplete=\"off\"\n            name=\"email\"\n            [(ngModel)]=\"usuario.email\"\n            required>\n            <label for=\"emailUsuario\" class=\"error\" *ngIf=\"!usuario.email && formLogin.submitted\">\n              Campo obrigatório*\n            </label>\n        </div>\n  \n        <div class=\"form-inline\">    \n          <label for=\"senhaUsuario\">Senha</label>\n          <input\n            type=\"password\"\n            id=\"senhaUsuario\"\n            class=\"form-control mx-sm-3\"\n            aria-describedby=\"passwordHelpInline\"\n            autocomplete=\"off\"\n            name=\"senha\"\n            [(ngModel)]=\"usuario.senha\"\n            required>\n          <small id=\"passwordHelpInline\" class=\"text-muted\">\n            Deve ter 8 a 20 caracteres.\n          </small>\n          <label for=\"senhaUsuario\" class=\"error\" *ngIf=\"!usuario.senha && formLogin.submitted\">\n            Campo obrigatório*\n          </label>\n        </div>\n      </section>\n\n      <footer class=\"acesso-conta\">\n        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" >\n          Entrar\n        </button>\n        <a routerLink=\"/##\">Esqueci minha senha</a>\n      </footer>\n\n    </form>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -584,7 +602,7 @@ module.exports = "<section class=\"container-login\">\n  \n  <div class=\"login-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-login {\n  position: absolute;\n  width: 40%;\n  height: 70%;\n  top: 60%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center; }\n  .container-login .text-login {\n    position: relative;\n    bottom: 10px;\n    z-index: 10;\n    font-size: 1.2em;\n    font-family: \"Roboto-Light\", sans-serif;\n    text-transform: uppercase;\n    font-weight: bold;\n    color: black;\n    top: 10px; }\n  .container-login .login-usuario {\n    position: absolute;\n    width: 100%;\n    height: 80%;\n    background-color: #ffffffe6;\n    box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n    border-radius: 20px; }\n  .container-login .login-usuario .form-group {\n      padding-top: 5%;\n      height: 80%;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between; }\n  .container-login .login-usuario .inputs-login {\n      padding: 0 25px 0 15px; }\n  .container-login .login-usuario .inputs-login::after {\n        content: '';\n        display: table;\n        clear: both; }\n  .container-login .login-usuario .inputs-login .form-inline {\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n        margin-bottom: 15px; }\n  .container-login .login-usuario .inputs-login .form-inline label {\n          justify-content: flex-end;\n          margin-right: 10px; }\n  .container-login .login-usuario .inputs-login .form-inline input {\n          width: 80%;\n          margin: 0 !important; }\n  .container-login .login-usuario .inputs-login .error {\n        font-size: 10px;\n        color: red; }\n  .container-login .acesso-conta {\n    text-align: center; }\n  .container-login .acesso-conta a {\n      display: block;\n      font-size: 0.8em;\n      cursor: pointer; }\n  .container-login .acesso-conta button {\n      display: inline-block;\n      width: 50%; }\n  .link-cadastro {\n  margin-right: 10px;\n  cursor: pointer; }\n"
+module.exports = ".container-login {\n  position: absolute;\n  width: 40%;\n  height: 70%;\n  top: 60%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center; }\n  .container-login .text-login {\n    position: relative;\n    bottom: 10px;\n    z-index: 10;\n    font-size: 1.2em;\n    font-family: \"Roboto-Light\", sans-serif;\n    text-transform: uppercase;\n    font-weight: 500;\n    color: black;\n    top: 10px; }\n  .container-login .login-usuario {\n    position: absolute;\n    width: 100%;\n    height: 80%;\n    background-color: #ffffffe6;\n    box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n    border-radius: 20px; }\n  .container-login .login-usuario .form-group {\n      padding-top: 5%;\n      height: 80%;\n      display: flex;\n      flex-direction: column;\n      justify-content: space-between; }\n  .container-login .login-usuario .inputs-login {\n      padding: 0 25px 0 15px; }\n  .container-login .login-usuario .inputs-login::after {\n        content: '';\n        display: table;\n        clear: both; }\n  .container-login .login-usuario .inputs-login .form-inline {\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n        margin-bottom: 15px; }\n  .container-login .login-usuario .inputs-login .form-inline label {\n          justify-content: flex-end;\n          margin-right: 10px; }\n  .container-login .login-usuario .inputs-login .form-inline input {\n          width: 80%;\n          margin: 0 !important; }\n  .container-login .login-usuario .inputs-login .error {\n        font-size: 10px;\n        color: red; }\n  .container-login .acesso-conta {\n    text-align: center; }\n  .container-login .acesso-conta a {\n      display: block;\n      font-size: 0.8em;\n      cursor: pointer; }\n  .container-login .acesso-conta button {\n      display: inline-block;\n      width: 50%; }\n  .link-cadastro {\n  margin-right: 10px;\n  cursor: pointer; }\n"
 
 /***/ }),
 
@@ -626,15 +644,17 @@ var LoginComponent = /** @class */ (function () {
         }
     };
     LoginComponent.prototype.onSubmit = function (form) {
-        if (form.valid && !this.postLogin()) {
-            this.postLogin();
-            this.router.navigate(['/home']);
+        if (form.valid) {
+            this.postLogin(this.usuario.email, this.usuario.senha);
         }
     };
-    LoginComponent.prototype.postLogin = function () {
-        var url = "https://more-movies.000webhostapp.com/ajax/login.php";
-        // Solução temporaria até a API trazer as repostas certas e se sucesses ou não, apresentei no alert para ficar mais visivel.
-        return this.http.post(url, JSON.stringify(this.usuario)).subscribe(function (response) { return alert(JSON.stringify(response)); });
+    LoginComponent.prototype.postLogin = function (email, senha) {
+        var _this = this;
+        var url = "http://200.98.71.158:888/tcc/api/usuario/login.php";
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]({ fromString: "login=" + email + "&senha=" + senha });
+        this.http.get(url, { params: params }).subscribe(function (response) {
+            (!response) ? _this.router.navigate(['/home']) : alert('ruim');
+        });
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -720,7 +740,7 @@ module.exports = "<menu>\n  <header class=\"header-menu\">\n    <h1>More Movies\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".header-menu {\n  background-color: black;\n  display: flex;\n  padding-top: 2%; }\n  .header-menu h1 {\n    color: #DCDCDC;\n    font-size: 233%;\n    font-family: sans-serif;\n    margin-left: 41%;\n    width: 80%; }\n  .header-menu .pesquisa-filmes {\n    position: absolute;\n    height: 6vh;\n    width: 30vw;\n    left: 74%; }\n  .header-menu .pesquisa-filmes button {\n      position: relative;\n      top: 1vh;\n      right: 3vw;\n      border: 0;\n      background: none;\n      cursor: pointer;\n      color: #969797;\n      font-size: 1rem; }\n  .header-menu .pesquisa-filmes .campo-busca {\n      transition: all .5s ease;\n      border: 0;\n      border-radius: 50em;\n      padding: 2%;\n      width: 23vw;\n      height: 5vh;\n      color: #969797;\n      font-size: 0.8em;\n      background: rgba(30, 30, 30, 0.7); }\n  .link-menu {\n  width: 100vw;\n  height: 7vh;\n  background: rgba(0, 0, 0, 0.8);\n  display: flex;\n  justify-content: space-around; }\n  .link-menu a {\n    color: white;\n    font-family: \"Roboto-Light\", sans-serif;\n    text-transform: uppercase;\n    font-size: 1.2rem;\n    -ms-grid-row-align: center;\n        align-self: center; }\n"
+module.exports = ".header-menu {\n  background-color: black;\n  display: flex;\n  padding-top: 2%; }\n  .header-menu h1 {\n    color: #DCDCDC;\n    font-size: 233%;\n    font-family: sans-serif;\n    width: 100%;\n    text-align: center; }\n  .header-menu .pesquisa-filmes {\n    position: absolute;\n    height: 6vh;\n    width: 30vw;\n    left: 74%; }\n  .header-menu .pesquisa-filmes button {\n      position: relative;\n      top: 1vh;\n      right: 3vw;\n      border: 0;\n      background: none;\n      cursor: pointer;\n      color: #969797;\n      font-size: 1rem; }\n  .header-menu .pesquisa-filmes .campo-busca {\n      transition: all .5s ease;\n      border: 0;\n      border-radius: 50em;\n      padding: 2%;\n      width: 23vw;\n      height: 5vh;\n      color: #969797;\n      font-size: 0.8em;\n      background: rgba(30, 30, 30, 0.7); }\n  .link-menu {\n  width: 100vw;\n  height: 7vh;\n  background: rgba(0, 0, 0, 0.8);\n  display: flex;\n  justify-content: space-around; }\n  .link-menu a {\n    color: white;\n    font-family: \"Roboto-Light\", sans-serif;\n    text-transform: uppercase;\n    font-size: 1.2rem;\n    -ms-grid-row-align: center;\n        align-self: center; }\n"
 
 /***/ }),
 
@@ -866,7 +886,7 @@ var Usuario = /** @class */ (function () {
     __decorate([
         Object(class_validator__WEBPACK_IMPORTED_MODULE_0__["IsArray"])(),
         __metadata("design:type", Array)
-    ], Usuario.prototype, "genero", void 0);
+    ], Usuario.prototype, "idGeneros", void 0);
     return Usuario;
 }());
 
