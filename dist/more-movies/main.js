@@ -193,7 +193,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-avaliacao-filmes \">\n  <h1>Aqui virá a parte de avaliação de filmes</h1>\n</section>"
+module.exports = "\n<section class=\"container-home\">\n  <h3>Avalie os Filmes abaixo</h3>\n\n  <div class=\"cards-filmes\">\n    <div class=\"card-filme\" *ngFor=\"let filme of filmes\">\n      <img title=\"{{filme.title}} - {{filme.overview}}\" src=\"https://image.tmdb.org/t/p/w200/{{filme.poster_path}}\"/>\n    </div>\n    <!-- <star-rating-comp></star-rating-comp> -->\n  </div>\n</section>"
 
 /***/ }),
 
@@ -204,7 +204,7 @@ module.exports = "<section class=\"container-avaliacao-filmes \">\n  <h1>Aqui vi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-avaliacao-filmes {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n"
+module.exports = ".container-home {\n  position: absolute;\n  width: 90%;\n  height: 80%;\n  top: 55%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  text-align: center;\n  background-color: #ffffffe6;\n  box-shadow: 5px 11px 8px 2px rgba(30, 30, 30, 0.7);\n  border-radius: 20px; }\n  .container-home .cards-filmes {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-around;\n    z-index: 0; }\n  .container-home .cards-filmes .card-filme {\n      width: 150px;\n      height: 240px;\n      border: 1px solid rgba(30, 30, 30, 0.7);\n      margin: 10px 8px 25px 8px;\n      transition: width height 1s;\n      transition-duration: 0.5s; }\n  .container-home .cards-filmes .card-filme:hover {\n        box-shadow: 7px 7px 90px 0px rgba(30, 30, 30, 0.7);\n        width: 155px;\n        height: 250px;\n        z-index: 1000; }\n  .container-home .cards-filmes .card-filme img {\n        width: 100%;\n        height: 85%;\n        -o-object-fit: cover;\n           object-fit: cover; }\n"
 
 /***/ }),
 
@@ -218,7 +218,8 @@ module.exports = ".container-avaliacao-filmes {\n  position: absolute;\n  width:
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AvaliacaoFilmesComponent", function() { return AvaliacaoFilmesComponent; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -229,16 +230,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AvaliacaoFilmesComponent = /** @class */ (function () {
-    function AvaliacaoFilmesComponent() {
+    function AvaliacaoFilmesComponent(httpClient) {
+        this.httpClient = httpClient;
+        this.filmes = new Array();
     }
+    AvaliacaoFilmesComponent.prototype.ngOnInit = function () {
+        this.carregaFilmes();
+    };
+    AvaliacaoFilmesComponent.prototype.carregaFilmes = function () {
+        var _this = this;
+        var url = "https://api.themoviedb.org/3/discover/movie?api_key=3cc731c8c870d7553d87571bd2486f68&language=pt-BR";
+        this.httpClient.get(url).subscribe(function (dados) {
+            dados.results.forEach(function (item) {
+                _this.filmes.push(item);
+            });
+        });
+        console.log('aqui', this.filmes);
+    };
     AvaliacaoFilmesComponent = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-avaliacao-filmes',
             template: __webpack_require__(/*! ./avaliacao-filmes.component.html */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.html"),
             styles: [__webpack_require__(/*! ./avaliacao-filmes.component.scss */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
     ], AvaliacaoFilmesComponent);
     return AvaliacaoFilmesComponent;
 }());
@@ -260,13 +277,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./avaliacao-filmes.component */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.ts");
+/* harmony import */ var angular_star_rating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-star-rating */ "./node_modules/angular-star-rating/esm5/angular-star-rating.js");
+/* harmony import */ var _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./avaliacao-filmes.component */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -278,12 +297,13 @@ var AvaliacaoFilmesModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                angular_star_rating__WEBPACK_IMPORTED_MODULE_3__["StarRatingModule"]
             ],
             declarations: [
-                _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__["AvaliacaoFilmesComponent"]
+                _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__["AvaliacaoFilmesComponent"]
             ],
-            exports: [_avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__["AvaliacaoFilmesComponent"]],
+            exports: [_avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__["AvaliacaoFilmesComponent"]],
         })
     ], AvaliacaoFilmesModule);
     return AvaliacaoFilmesModule;
@@ -300,7 +320,7 @@ var AvaliacaoFilmesModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-cadastro\">\n  <h1>Insira seus dados</h1>\n  <span class=\"informativo-cadastro\">\n    Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações\n  </span>\n  <form (ngSubmit)=\"onSubmit(refForm)\" #refForm=\"ngForm\" class=\"formulario-cadastro\">\n    <section class=\"primeiro-passo\">\n      <span>1º</span>\n      <div class=\"form-group\">\n        <input\n          name=\"nomeCompleto\"\n          type=\"text\"\n          class=\"form-control\"\n          id=\"nomeCompleto\"\n          placeholder=\"Nome Completo\"\n          required\n          [(ngModel)]=\"usuario.nomeCompleto\"\n          [class.has-error]=\"!usuario.nomeCompleto && submit\">\n      </div>\n      <div class=\"checkbox-sexo\" id=\"tipo-sexo\" [class.has-error-sexo]=\"!usuario.sexo && submit\">\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\"\n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios1\"\n              value=\"feminino\"\n              #feminino\n              (click)= \"setSexoSelecionado(feminino.value)\"\n              required>\n            <label class=\"form-check-label\" for=\"exampleRadios1\">\n              Feminino\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\" \n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios2\"\n              value=\"masculino\"\n              #masculino\n              (click)= \"setSexoSelecionado(masculino.value)\">\n            <label class=\"form-check-label\" for=\"exampleRadios2\">\n              Masculino\n            </label>\n          </div>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputDate\" class=\"data-nascimento\">Data de Nascimento</label>\n        <input\n          type=\"date\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputDate\"\n          name=\"dataNascimento\"\n          [(ngModel)]=\"usuario.dtNasc\"\n          required\n          [class.has-error]=\"!usuario.dtNasc && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          name=\"email\"\n          type=\"email\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputEmail\"\n          placeholder=\"E-mail\"\n          [(ngModel)]=\"usuario.email\"\n          required\n          email\n          [class.has-error]=\"!usuario.email && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputSenha\"\n          name=\"senha\"\n          placeholder=\"Cadastre uma Senha\"\n          [(ngModel)]=\"usuario.senha\"\n          required\n          [class.has-error]=\"!usuario.senha && submit\">\n        <small id=\"passwordHelpInline\" class=\"text-muted\">\n          Deve ter 8 a 20 caracteres.\n        </small>\n      </div>\n    </section>\n    <section class=\"segundo-passo\">\n      <span>2º</span>\n      <section class=\"container-genero\">\n        <span [class.has-erro-genero]=\"(!usuario.idGeneros || usuario.idGeneros.length < 3) && submit\">\n          Selecione ao menos 3 generos\n        </span>\n        <ul class=\"selecione-generos\">\n          <li\n            class=\"form-check\"\n            *ngFor=\"let isGenero of isGeneros; let i = index\">\n            <input\n              class=\"form-check-input\"\n              type=\"checkbox\"\n              id=\"generosFilmes\"\n              (click)=\"setGenero(isGenero)\"\n              required>\n            <label class=\"form-check-label\" for=\"generosFilmes\">\n              {{isGenero.genero}}\n            </label>\n          </li>\n        </ul>\n      </section>\n    </section>\n    <button type=\"submit\" id=\"proxima-etapa\" class=\"fas fa-arrow-right\"></button>\n  </form>\n</section>\n"
+module.exports = "<section class=\"container-cadastro\">\n  <h1>Insira seus dados</h1>\n  <span class=\"informativo-cadastro\">\n    Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações\n  </span>\n  <form (ngSubmit)=\"onSubmit(refForm)\" #refForm=\"ngForm\" class=\"formulario-cadastro\">\n    <section class=\"primeiro-passo\">\n      <span>1º</span>\n      <div class=\"form-group\">\n        <input\n          name=\"nomeCompleto\"\n          type=\"text\"\n          class=\"form-control\"\n          id=\"nomeCompleto\"\n          placeholder=\"Nome Completo\"\n          required\n          [(ngModel)]=\"usuario.nome\"\n          [class.has-error]=\"!usuario.nome && submit\">\n      </div>\n      <div class=\"checkbox-sexo\" id=\"tipo-sexo\" [class.has-error-sexo]=\"!usuario.sexo && submit\">\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\"\n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios1\"\n              value=\"feminino\"\n              #feminino\n              (click)= \"setSexoSelecionado(feminino.value)\"\n              required>\n            <label class=\"form-check-label\" for=\"exampleRadios1\">\n              Feminino\n            </label>\n          </div>\n          <div class=\"form-check\">\n            <input\n              class=\"form-check-input\" \n              type=\"radio\"\n              name=\"exampleRadios\"\n              id=\"exampleRadios2\"\n              value=\"masculino\"\n              #masculino\n              (click)= \"setSexoSelecionado(masculino.value)\">\n            <label class=\"form-check-label\" for=\"exampleRadios2\">\n              Masculino\n            </label>\n          </div>\n        </div>\n      <div class=\"form-group\">\n        <label for=\"formGroupExampleInputDate\" class=\"data-nascimento\">Data de Nascimento</label>\n        <input\n          type=\"date\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputDate\"\n          name=\"dataNascimento\"\n          [(ngModel)]=\"usuario.dt_nasc\"\n          required\n          [class.has-error]=\"!usuario.dt_nasc && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          name=\"email\"\n          type=\"email\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputEmail\"\n          placeholder=\"E-mail\"\n          [(ngModel)]=\"usuario.email\"\n          required\n          email\n          [class.has-error]=\"!usuario.email && submit\">\n      </div>\n      <div class=\"form-group\">\n        <input\n          type=\"text\"\n          class=\"form-control\"\n          id=\"formGroupExampleInputSenha\"\n          name=\"senha\"\n          placeholder=\"Cadastre uma Senha\"\n          [(ngModel)]=\"usuario.senha\"\n          required\n          [class.has-error]=\"!usuario.senha && submit\">\n        <small id=\"passwordHelpInline\" class=\"text-muted\">\n          Deve ter 8 a 20 caracteres.\n        </small>\n      </div>\n    </section>\n    <section class=\"segundo-passo\">\n      <span>2º</span>\n      <section class=\"container-genero\">\n        <span [class.has-erro-genero]=\"(!usuario.idGeneros || usuario.idGeneros.length < 3) && submit\">\n          Selecione ao menos 3 generos\n        </span>\n        <ul class=\"selecione-generos\">\n          <li\n            class=\"form-check\"\n            *ngFor=\"let isGenero of isGeneros; let i = index\">\n            <input\n              class=\"form-check-input\"\n              type=\"checkbox\"\n              id=\"generosFilmes\"\n              (click)=\"setGenero(isGenero)\"\n              >\n            <label class=\"form-check-label\" for=\"generosFilmes\">\n              {{isGenero.genero}}\n            </label>\n          </li>\n        </ul>\n      </section>\n    </section>\n    <button type=\"submit\" id=\"proxima-etapa\" class=\"fas fa-arrow-right\"></button>\n  </form>\n</section>\n"
 
 /***/ }),
 
@@ -367,16 +387,22 @@ var CadastroComponent = /** @class */ (function () {
     CadastroComponent.prototype.setGenero = function (isGenero) {
         this.usuario.idGeneros.push(isGenero.id_genero);
     };
-    CadastroComponent.prototype.enviarDadosCadastrados = function () {
-        var url = "http://200.98.71.158:888/tcc/api/usuario/create.php";
-        this.http.post(url, JSON.stringify(this.usuario))
-            .subscribe(function (dados) { return console.log('sucesso', dados); });
+    CadastroComponent.prototype.enviarDadosCadastrados = function (usuario) {
+        var url = "http://200.98.71.158:888/tcc/api/usuario/criar.php";
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer 123456'
+            })
+        };
+        this.http.post(url, JSON.stringify(usuario), httpOptions)
+            .subscribe(function (dados) { return console.log('sucesso', dados, httpOptions); });
     };
     CadastroComponent.prototype.onSubmit = function (form) {
         this.formValid = form.valid;
         this.submit = true;
         if (this.isFormValid) {
-            this.enviarDadosCadastrados();
+            this.enviarDadosCadastrados(this.usuario);
             this.router.navigate(['/avaliacao-filmes']);
         }
     };
@@ -591,7 +617,7 @@ var HomeModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"container-login\">\n  \n  <div class=\"login-usuario\">\n\n    <span class=\"text-login\">\n      Faça login em sua conta More Movies\n      <i class=\"fas fa-film\"></i>\n    </span>\n\n    <form (ngSubmit)=\"onSubmit(formLogin)\" #formLogin=\"ngForm\" class=\"form-group\">\n\n      <a class=\"link-cadastro\" routerLink=\"/cadastro\">\n        Se cadastrar\n        <i class=\"far fa-address-card\"></i>\n      </a>\n\n      <section class=\"inputs-login\">\n        <div class=\"form-inline\">\n          <label for=\"emailUsuario\">E-mail</label>\n          <input\n            class=\"form-control mx-sm-3\"\n            id=\"emailUsuario\"\n            type=\"text\"\n            placeholder=\"E-mail\"\n            autocomplete=\"off\"\n            name=\"email\"\n            [(ngModel)]=\"usuario.email\"\n            required>\n            <label for=\"emailUsuario\" class=\"error\" *ngIf=\"!usuario.email && formLogin.submitted\">\n              Campo obrigatório*\n            </label>\n        </div>\n  \n        <div class=\"form-inline\">    \n          <label for=\"senhaUsuario\">Senha</label>\n          <input\n            type=\"password\"\n            id=\"senhaUsuario\"\n            class=\"form-control mx-sm-3\"\n            aria-describedby=\"passwordHelpInline\"\n            autocomplete=\"off\"\n            name=\"senha\"\n            [(ngModel)]=\"usuario.senha\"\n            required>\n          <small id=\"passwordHelpInline\" class=\"text-muted\">\n            Deve ter 8 a 20 caracteres.\n          </small>\n          <label for=\"senhaUsuario\" class=\"error\" *ngIf=\"!usuario.senha && formLogin.submitted\">\n            Campo obrigatório*\n          </label>\n        </div>\n      </section>\n\n      <footer class=\"acesso-conta\">\n        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" >\n          Entrar\n        </button>\n        <a routerLink=\"/##\">Esqueci minha senha</a>\n      </footer>\n\n    </form>\n  </div>\n</section>"
+module.exports = "<section class=\"container-login\">\n  \n  <div class=\"login-usuario\">\n\n    <span class=\"text-login\">\n      Faça login em sua conta More Movies\n      <i class=\"fas fa-film\"></i>\n    </span>\n\n    <form (ngSubmit)=\"onSubmit(formLogin)\" #formLogin=\"ngForm\" class=\"form-group\">\n\n      <a class=\"link-cadastro\" routerLink=\"/cadastro\">\n        Cadastrar-se\n        <i class=\"far fa-address-card\"></i>\n      </a>\n\n      <section class=\"inputs-login\">\n        <div class=\"form-inline\">\n          <label for=\"emailUsuario\">E-mail</label>\n          <input\n            class=\"form-control mx-sm-3\"\n            id=\"emailUsuario\"\n            type=\"text\"\n            placeholder=\"E-mail\"\n            autocomplete=\"off\"\n            name=\"email\"\n            [(ngModel)]=\"usuario.email\"\n            required>\n            <label for=\"emailUsuario\" class=\"error\" *ngIf=\"!usuario.email && formLogin.submitted\">\n              Campo obrigatório*\n            </label>\n        </div>\n  \n        <div class=\"form-inline\">    \n          <label for=\"senhaUsuario\">Senha</label>\n          <input\n            type=\"password\"\n            id=\"senhaUsuario\"\n            class=\"form-control mx-sm-3\"\n            aria-describedby=\"passwordHelpInline\"\n            autocomplete=\"off\"\n            name=\"senha\"\n            [(ngModel)]=\"usuario.senha\"\n            required>\n          <small id=\"passwordHelpInline\" class=\"text-muted\">\n            Deve ter 8 a 20 caracteres.\n          </small>\n          <label for=\"senhaUsuario\" class=\"error\" *ngIf=\"!usuario.senha && formLogin.submitted\">\n            Campo obrigatório*\n          </label>\n        </div>\n      </section>\n\n      <footer class=\"acesso-conta\">\n        <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" >\n          Entrar\n        </button>\n        <a routerLink=\"/##\">Esqueci minha senha</a>\n      </footer>\n\n    </form>\n  </div>\n</section>"
 
 /***/ }),
 
@@ -651,9 +677,10 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.postLogin = function (email, senha) {
         var _this = this;
         var url = "http://200.98.71.158:888/tcc/api/usuario/login.php";
-        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]({ fromString: "login=" + email + "&senha=" + senha });
+        var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]({ fromString: "email=" + email + "&senha=" + senha });
         this.http.get(url, { params: params }).subscribe(function (response) {
-            (!response) ? _this.router.navigate(['/home']) : alert('ruim');
+            console.log('aqui ', response);
+            (!response) ? _this.router.navigate(['/home']) : alert(response);
         });
     };
     LoginComponent = __decorate([
@@ -767,9 +794,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var MenuComponent = /** @class */ (function () {
     function MenuComponent() {
+        this.exibir = false;
     }
     MenuComponent.prototype.ngOnInit = function () {
-        this.exibir = false;
+        if (this.usuario) {
+            this.exibir = true;
+        }
     };
     MenuComponent.prototype.buscaFilmes = function (textoParaBusca) {
         console.log('vai voltar os filmes', textoParaBusca);
@@ -862,7 +892,7 @@ var Usuario = /** @class */ (function () {
     __decorate([
         Object(class_validator__WEBPACK_IMPORTED_MODULE_0__["IsString"])(),
         __metadata("design:type", String)
-    ], Usuario.prototype, "nomeCompleto", void 0);
+    ], Usuario.prototype, "nome", void 0);
     __decorate([
         Object(class_validator__WEBPACK_IMPORTED_MODULE_0__["IsEmail"])(),
         __metadata("design:type", String)
@@ -874,7 +904,7 @@ var Usuario = /** @class */ (function () {
     __decorate([
         Object(class_validator__WEBPACK_IMPORTED_MODULE_0__["IsDate"])(),
         __metadata("design:type", Date)
-    ], Usuario.prototype, "dtNasc", void 0);
+    ], Usuario.prototype, "dt_nasc", void 0);
     __decorate([
         Object(class_validator__WEBPACK_IMPORTED_MODULE_0__["IsString"])(),
         __metadata("design:type", String)

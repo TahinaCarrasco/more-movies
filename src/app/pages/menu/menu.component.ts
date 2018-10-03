@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from './../models/usuario.model';
 
 
 @Component({
@@ -8,12 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  exibir: boolean;
+  exibir = false;
+  usuario: Usuario;
 
   constructor() { }
 
   ngOnInit() {
-    this.exibir = false;
+    if (this.usuario) {
+      this.exibir = true;
+    }
   }
 
   buscaFilmes(textoParaBusca: string) {

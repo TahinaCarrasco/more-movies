@@ -35,10 +35,11 @@ export class LoginComponent implements OnInit {
   postLogin(email: string, senha: string) {
 
     const url = `http://200.98.71.158:888/tcc/api/usuario/login.php`;
-    const params = new HttpParams({ fromString: `login=${email}&senha=${senha}` });
+    const params = new HttpParams({ fromString: `email=${email}&senha=${senha}` });
 
     this.http.get(url, { params }).subscribe(response => {
-      (!response) ? this.router.navigate(['/home']) : alert('ruim');
+      console.log('aqui ', response);
+      (!response) ? this.router.navigate(['/home']) : alert(response);
     });
   }
 

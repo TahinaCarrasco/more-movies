@@ -1,3 +1,11 @@
-<section class="container-avaliacao-filmes ">
-  <h1>Aqui virá a parte de avaliação de filmes</h1>
+
+<section class="container-home">
+  <h3>Avalie os Filmes abaixo</h3>
+
+  <div class="cards-filmes">
+    <div class="card-filme" *ngFor="let filme of filmes">
+      <img title="{{filme.title}} - {{filme.overview}}" src="https://image.tmdb.org/t/p/w200/{{filme.poster_path}}"/>
+    </div>
+    <!-- <star-rating-comp></star-rating-comp> -->
+  </div>
 </section>

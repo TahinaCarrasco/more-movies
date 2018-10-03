@@ -14,8 +14,8 @@
           id="nomeCompleto"
           placeholder="Nome Completo"
           required
-          [(ngModel)]="usuario.nomeCompleto"
-          [class.has-error]="!usuario.nomeCompleto && submit">
+          [(ngModel)]="usuario.nome"
+          [class.has-error]="!usuario.nome && submit">
       </div>
       <div class="checkbox-sexo" id="tipo-sexo" [class.has-error-sexo]="!usuario.sexo && submit">
           <div class="form-check">
@@ -53,9 +53,9 @@
           class="form-control"
           id="formGroupExampleInputDate"
           name="dataNascimento"
-          [(ngModel)]="usuario.dtNasc"
+          [(ngModel)]="usuario.dt_nasc"
           required
-          [class.has-error]="!usuario.dtNasc && submit">
+          [class.has-error]="!usuario.dt_nasc && submit">
       </div>
       <div class="form-group">
         <input
@@ -99,7 +99,7 @@
               type="checkbox"
               id="generosFilmes"
               (click)="setGenero(isGenero)"
-              required>
+              >
             <label class="form-check-label" for="generosFilmes">
               {{isGenero.genero}}
             </label>

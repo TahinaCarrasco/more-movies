@@ -3,7 +3,7 @@ import { IsArray, IsDate, IsEmail, IsString } from 'class-validator';
 export class Usuario {
 
   @IsString()
-  nomeCompleto: string;
+  nome: string;
 
   @IsEmail()
   email: string;
@@ -12,7 +12,7 @@ export class Usuario {
   sexo: string;
 
   @IsDate()
-  dtNasc: Date;
+  dt_nasc: Date;
 
   @IsString()
   login: string;

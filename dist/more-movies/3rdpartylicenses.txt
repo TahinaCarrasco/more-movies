@@ -95,6 +95,10 @@ MIT
 MIT
 MIT
 
+angular-star-rating@4.0.0-beta.3
+MIT
+MIT
+
 class-validator@0.7.1
 MIT
 MIT

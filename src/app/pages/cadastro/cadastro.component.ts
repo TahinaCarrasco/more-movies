@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/forms';
 import { Router } from '@angular/router';
@@ -42,12 +42,19 @@ export class CadastroComponent implements OnInit {
     this.usuario.idGeneros.push(isGenero.id_genero);
   }
 
-  enviarDadosCadastrados(): void {
+  enviarDadosCadastrados(usuario: Usuario): void {
+    const url = `http://200.98.71.158:888/tcc/api/usuario/criar.php`;
 
-    const url = `http://200.98.71.158:888/tcc/api/usuario/create.php`;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 123456'
+      })
+    };
 
-    this.http.post(url, JSON.stringify(this.usuario))
-      .subscribe(dados => console.log('sucesso', dados));
+
+    this.http.post<Usuario>(url, JSON.stringify(usuario), httpOptions)
+      .subscribe(dados => console.log('sucesso', dados, httpOptions));
   }
 
   onSubmit(form: NgForm): void {
@@ -56,7 +63,7 @@ export class CadastroComponent implements OnInit {
     this.submit = true;
 
     if (this.isFormValid) {
-      this.enviarDadosCadastrados();
+      this.enviarDadosCadastrados(this.usuario);
       this.router.navigate(['/avaliacao-filmes']);
     }
 
