@@ -8,7 +8,7 @@ import { LoadImageDirective } from './directives/loadimage.directive';
   imports: [
     CommonModule,
     FormsModule,
-    StarRatingModule
+    StarRatingModule.forRoot()
   ],
   declarations: [
     AvaliacaoFilmesComponent,
