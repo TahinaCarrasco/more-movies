@@ -168,6 +168,14 @@ $color-blue: rgb(86, 166, 220);
       }
     }
   }
+
+  input {
+    text-transform: uppercase;
+
+    &.email{
+      text-transform: none;
+    }
+  }
 }
 
 #proxima-etapa {

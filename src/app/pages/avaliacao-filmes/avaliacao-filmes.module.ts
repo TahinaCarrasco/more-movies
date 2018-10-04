@@ -7,7 +7,7 @@ import { AvaliacaoFilmesComponent } from './avaliacao-filmes.component';
   imports: [
     CommonModule,
     FormsModule,
-    StarRatingModule
+    StarRatingModule.forRoot()
   ],
   declarations: [
     AvaliacaoFilmesComponent

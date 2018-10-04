@@ -5,7 +5,7 @@
   </span>
   <form (ngSubmit)="onSubmit(refForm)" #refForm="ngForm" class="formulario-cadastro">
     <section class="primeiro-passo">
-      <span>1º</span>
+      <span>1º PASSO</span>
       <div class="form-group">
         <input
           name="nomeCompleto"
@@ -61,7 +61,7 @@
         <input
           name="email"
           type="email"
-          class="form-control"
+          class="form-control email"
           id="formGroupExampleInputEmail"
           placeholder="E-mail"
           [(ngModel)]="usuario.email"
@@ -85,7 +85,7 @@
       </div>
     </section>
     <section class="segundo-passo">
-      <span>2º</span>
+      <span>2º PASSO</span>
       <section class="container-genero">
         <span [class.has-erro-genero]="(!usuario.idGeneros || usuario.idGeneros.length < 3) && submit">
           Selecione ao menos 3 generos
