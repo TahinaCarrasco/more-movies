@@ -15,6 +15,8 @@ export class AvaliacaoFilmesComponent implements OnInit {
 
   filmes$ = new Observable<Array<Filme>>();
 
+  private average = 5 / 10;
+
   constructor(
     private httpClient: HttpClient,
     private activatedRoute: ActivatedRoute
@@ -32,13 +34,17 @@ export class AvaliacaoFilmesComponent implements OnInit {
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=3cc731c8c870d7553d87571bd2486f68&language=pt-BR`;
     return this.httpClient.get<Array<Filme>>(url)
       .pipe(
-        map((response: { results: [] }) => response.results)
+        map((response: { results: Array<any> }) => response.results)
       )
   }
 
   sanitizeUrls(url: string): string {
     const remoteUrl = 'https://image.tmdb.org/t/p/w200/'
     return `${remoteUrl}${url.substr(0, 1) === '/' ? url.substr(1, url.length) : url}`;
+  }
+
+  ratio(point): number {
+    return this.average * point;
   }
 
 }
