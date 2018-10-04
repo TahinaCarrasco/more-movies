@@ -4,6 +4,7 @@ import { Filme } from 'src/app/pages/models/filme.model';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-avaliacao-filmes',
@@ -21,7 +22,7 @@ export class AvaliacaoFilmesComponent implements OnInit {
 
   ngOnInit() {
     const { filmes } = this.activatedRoute.snapshot.queryParams;
-    this.filmes$ = this.carregaFilmes(JSON.parse(filmes));
+    this.filmes$ = this.carregaFilmes(filmes ? JSON.parse(filmes) : null);
   }
 
   carregaFilmes(filmes: Array<any>): Observable<Array<Filme>> {
@@ -29,7 +30,10 @@ export class AvaliacaoFilmesComponent implements OnInit {
       return of(filmes);
     }
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=3cc731c8c870d7553d87571bd2486f68&language=pt-BR`;
-    return this.httpClient.get<Array<Filme>>(url);
+    return this.httpClient.get<Array<Filme>>(url)
+      .pipe(
+        map((response: { results: [] }) => response.results)
+      )
   }
 
   sanitizeUrls(url: string): string {
