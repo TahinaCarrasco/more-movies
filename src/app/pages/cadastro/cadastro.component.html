@@ -3,7 +3,11 @@
   <span class="informativo-cadastro">
     Todos os dados aqui inseridos seram armazenados em nossa base de dados para futuras pesquisas e recomendações
   </span>
-  <form (ngSubmit)="onSubmit(refForm)" #refForm="ngForm" class="formulario-cadastro">
+  <form
+    (ngSubmit)="onSubmit(refForm)"
+    #refForm="ngForm"
+    class="formulario-cadastro"
+  >
     <section class="primeiro-passo">
       <span>1º PASSO</span>
       <div class="form-group">
@@ -15,39 +19,55 @@
           placeholder="Nome Completo"
           required
           [(ngModel)]="usuario.nome"
-          [class.has-error]="!usuario.nome && submit">
+          [class.has-error]="!usuario.nome && submit"
+        >
       </div>
-      <div class="checkbox-sexo" id="tipo-sexo" [class.has-error-sexo]="!usuario.sexo && submit">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios1"
-              value="feminino"
-              #feminino
-              (click)= "setSexoSelecionado(feminino.value)"
-              required>
-            <label class="form-check-label" for="exampleRadios1">
-              Feminino
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input" 
-              type="radio"
-              name="exampleRadios"
-              id="exampleRadios2"
-              value="masculino"
-              #masculino
-              (click)= "setSexoSelecionado(masculino.value)">
-            <label class="form-check-label" for="exampleRadios2">
-              Masculino
-            </label>
-          </div>
+      <div
+        class="checkbox-sexo"
+        id="tipo-sexo"
+        [class.has-error-sexo]="!usuario.sexo && submit"
+      >
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="exampleRadios1"
+            value="feminino"
+            #feminino
+            (click)="setSexoSelecionado(feminino.value)"
+            required
+          >
+          <label
+            class="form-check-label"
+            for="exampleRadios1"
+          >
+            Feminino
+          </label>
         </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="exampleRadios"
+            id="exampleRadios2"
+            value="masculino"
+            #masculino
+            (click)="setSexoSelecionado(masculino.value)"
+          >
+          <label
+            class="form-check-label"
+            for="exampleRadios2"
+          >
+            Masculino
+          </label>
+        </div>
+      </div>
       <div class="form-group">
-        <label for="formGroupExampleInputDate" class="data-nascimento">Data de Nascimento</label>
+        <label
+          for="formGroupExampleInputDate"
+          class="data-nascimento"
+        >Data de Nascimento</label>
         <input
           type="date"
           class="form-control"
@@ -55,7 +75,8 @@
           name="dataNascimento"
           [(ngModel)]="usuario.dt_nasc"
           required
-          [class.has-error]="!usuario.dt_nasc && submit">
+          [class.has-error]="!usuario.dt_nasc && submit"
+        >
       </div>
       <div class="form-group">
         <input
@@ -67,7 +88,8 @@
           [(ngModel)]="usuario.email"
           required
           email
-          [class.has-error]="!usuario.email && submit">
+          [class.has-error]="!usuario.email && submit"
+        >
       </div>
       <div class="form-group">
         <input
@@ -78,8 +100,12 @@
           placeholder="Cadastre uma Senha"
           [(ngModel)]="usuario.senha"
           required
-          [class.has-error]="!usuario.senha && submit">
-        <small id="passwordHelpInline" class="text-muted">
+          [class.has-error]="!usuario.senha && submit"
+        >
+        <small
+          id="passwordHelpInline"
+          class="text-muted"
+        >
           Deve ter 8 a 20 caracteres.
         </small>
       </div>
@@ -93,20 +119,28 @@
         <ul class="selecione-generos">
           <li
             class="form-check"
-            *ngFor="let isGenero of isGeneros; let i = index">
+            *ngFor="let isGenero of isGeneros; let i = index"
+          >
             <input
               class="form-check-input"
               type="checkbox"
               id="generosFilmes"
               (click)="setGenero(isGenero)"
-              >
-            <label class="form-check-label" for="generosFilmes">
+            >
+            <label
+              class="form-check-label"
+              for="generosFilmes"
+            >
               {{isGenero.genero}}
             </label>
           </li>
         </ul>
       </section>
     </section>
-    <button type="submit" id="proxima-etapa" class="fas fa-arrow-right"></button>
+    <button
+      type="submit"
+      id="proxima-etapa"
+      class="fas fa-arrow-right"
+    ></button>
   </form>
 </section>

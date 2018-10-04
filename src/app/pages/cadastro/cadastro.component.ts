@@ -52,13 +52,12 @@ export class CadastroComponent implements OnInit {
       })
     };
 
-
-    this.http.post<{ results: Array<T> }>(url, JSON.stringify(usuario), httpOptions)
-      .subscribe(dados => this.router.navigate(['/avaliacao-filmes', {
+    this.http.post<{ results: Array<any> }>(url, JSON.stringify(usuario), httpOptions)
+      .subscribe(dados => this.router.navigate(['/avaliacao-filmes'], {
         queryParams: {
           filmes: JSON.stringify(dados.results)
         }
-      }]));
+      }));
   }
 
   onSubmit(form: NgForm): void {
