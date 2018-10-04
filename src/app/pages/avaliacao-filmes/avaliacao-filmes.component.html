@@ -1,10 +1,15 @@
-
 <section class="container-home">
   <h3>Avalie os Filmes abaixo</h3>
 
   <div class="cards-filmes">
-    <div class="card-filme" *ngFor="let filme of filmes">
-      <img title="{{filme.title}} - {{filme.overview}}" src="https://image.tmdb.org/t/p/w200/{{filme.poster_path}}"/>
+    <div
+      class="card-filme"
+      *ngFor="let filme of filmes$ | async"
+    >
+      <img
+        title="{{filme.title}} - {{filme.overview}}"
+        [appLoadImage]="sanitizeUrls(filme.poster_path)"
+      />
     </div>
     <!-- <star-rating-comp></star-rating-comp> -->
   </div>

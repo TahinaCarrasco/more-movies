@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Filme } from 'src/app/pages/models/filme.model';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-avaliacao-filmes',
@@ -9,26 +12,29 @@ import { Filme } from 'src/app/pages/models/filme.model';
 })
 export class AvaliacaoFilmesComponent implements OnInit {
 
-  filmes = new Array<Filme>();
+  filmes$ = new Observable<Array<Filme>>();
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.carregaFilmes();
+    const { filmes } = this.activatedRoute.snapshot.queryParams;
+    this.filmes$ = this.carregaFilmes(JSON.parse(filmes));
   }
 
-  carregaFilmes() {
+  carregaFilmes(filmes: Array<any>): Observable<Array<Filme>> {
+    if (filmes && filmes.length) {
+      return of(filmes);
+    }
     const url = `https://api.themoviedb.org/3/discover/movie?api_key=3cc731c8c870d7553d87571bd2486f68&language=pt-BR`;
+    return this.httpClient.get<Array<Filme>>(url);
+  }
 
-    this.httpClient.get(url).subscribe((dados: any) => {
-
-      dados.results.forEach((item) => {
-        this.filmes.push(item);
-      });
-    });
-    console.log('aqui', this.filmes);
+  sanitizeUrls(url: string): string {
+    const remoteUrl = 'https://image.tmdb.org/t/p/w200/'
+    return `${remoteUrl}${url.substr(0, 1) === '/' ? url.substr(1, url.length) : url}`;
   }
 
 }
