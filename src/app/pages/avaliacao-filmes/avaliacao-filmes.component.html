@@ -10,12 +10,12 @@
         title="{{filme.title}} - {{filme.overview}}"
         [appLoadImage]="sanitizeUrls(filme.poster_path)"
       />
-      <star-rating
+      <star-rating-comp
         class="rating"
         [starType]="'svg'"
-        [rating]="ratio(filme.vote_average)"
-        [space]="between"
-      ></star-rating>
+        [space]="'between'"
+        num-of-stars="6"
+      ></star-rating-comp>
     </div>
   </div>
 </section>

@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Filme } from 'src/app/pages/models/filme.model';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+import { Filme } from 'src/app/pages/models/filme.model';
 
 @Component({
   selector: 'app-avaliacao-filmes',
@@ -35,11 +35,12 @@ export class AvaliacaoFilmesComponent implements OnInit {
     return this.httpClient.get<Array<Filme>>(url)
       .pipe(
         map((response: { results: Array<any> }) => response.results)
-      )
+      );
   }
 
   sanitizeUrls(url: string): string {
-    const remoteUrl = 'https://image.tmdb.org/t/p/w200/'
+
+    const remoteUrl = 'https://image.tmdb.org/t/p/w200/';
     return `${remoteUrl}${url.substr(0, 1) === '/' ? url.substr(1, url.length) : url}`;
   }
 
