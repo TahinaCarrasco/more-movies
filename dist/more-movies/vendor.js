@@ -65993,56 +65993,114 @@ var VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('6.1.2')
 
 /***/ }),
 
-/***/ "./node_modules/angular-star-rating/esm5/angular-star-rating.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/angular-star-rating/esm5/angular-star-rating.js ***!
-  \**********************************************************************/
-/*! exports provided: StarRatingConfig, StarRatingUtils, StarRating, StarRatingConfigService, StarRatingComponent, StarRatingControlComponent, StarRatingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ "./node_modules/angular-star-rating/dist/index.js":
+/*!********************************************************!*\
+  !*** ./node_modules/angular-star-rating/dist/index.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingConfig", function() { return StarRatingConfig; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingUtils", function() { return StarRatingUtils; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRating", function() { return StarRating; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingConfigService", function() { return StarRatingConfigService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingComponent", function() { return StarRatingComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingControlComponent", function() { return StarRatingControlComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingModule", function() { return StarRatingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 
-
-
-
-
-var StarRatingConfig = /** @class */ (function () {
-    function StarRatingConfig() {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+const common_1 = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+const star_rating_component_1 = __webpack_require__(/*! ./src/star-rating.component */ "./node_modules/angular-star-rating/dist/src/star-rating.component.js");
+const star_rating_config_1 = __webpack_require__(/*! ./src/star-rating-config */ "./node_modules/angular-star-rating/dist/src/star-rating-config.js");
+__export(__webpack_require__(/*! ./src/star-rating.component */ "./node_modules/angular-star-rating/dist/src/star-rating.component.js"));
+__export(__webpack_require__(/*! ./src/star-rating-config */ "./node_modules/angular-star-rating/dist/src/star-rating-config.js"));
+let StarRatingModule = StarRatingModule_1 = class StarRatingModule {
+    static forRoot() {
+        return {
+            ngModule: StarRatingModule_1,
+            providers: [star_rating_config_1.StarRatingConfig]
+        };
     }
-    return StarRatingConfig;
-}());
-var StarRatingUtils = /** @class */ (function () {
-    function StarRatingUtils() {
+};
+StarRatingModule = StarRatingModule_1 = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule
+        ],
+        declarations: [
+            star_rating_component_1.StarRatingComponent
+        ],
+        exports: [
+            star_rating_component_1.StarRatingComponent
+        ]
+    })
+], StarRatingModule);
+exports.StarRatingModule = StarRatingModule;
+var StarRatingModule_1;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/angular-star-rating/dist/src/star-rating-config.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/angular-star-rating/dist/src/star-rating-config.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/**
+ * Configuration service for the StarRating component.
+ * You can inject this service, typically in your root component, and customize the values of its properties in
+ * order to provide default values for all the star ratings used in the application.
+ */
+let StarRatingConfig = class StarRatingConfig {
+    /**
+     * Configuration service for the StarRating component.
+     * You can inject this service, typically in your root component, and customize the values of its properties in
+     * order to provide default values for all the star ratings used in the application.
+     */
+    constructor() {
+        this.classEmpty = "default-star-empty-icon";
+        this.classHalf = "default-star-half-icon";
+        this.classFilled = "default-star-filled-icon";
+        this.numOfStars = 5;
+        this.size = "medium";
+        this.speed = "noticeable";
+        this.labelPosition = "left";
+        this.starType = "svg";
+        this.assetsPath = "assets/images/";
+        this.svgPath = this.assetsPath + "star-rating.icons.svg";
+        this.svgEmptySymbolId = "star-empty";
+        this.svgHalfSymbolId = "star-half";
+        this.svgFilledSymbolId = "star-filled";
+        this.svgPathEmpty = this.svgPath + "#" + this.svgEmptySymbolId;
+        this.svgPathHalf = this.svgPath + "#" + this.svgHalfSymbolId;
+        this.svgPathFilled = this.svgPath + "#" + this.svgFilledSymbolId;
     }
-    StarRatingUtils.getStarsArray = function (numOfStars) {
-        var stars = [];
-        for (var i = 0; i < numOfStars; i++) {
-            stars.push(i + 1);
-        }
-        return stars;
-    };
-    StarRatingUtils.getHalfStarVisible = function (rating) {
-        return Math.abs(rating % 1) > 0;
-    };
-    StarRatingUtils.getColor = function (rating, numOfStars, staticColor) {
+    getColor(rating, numOfStars, staticColor) {
         rating = rating || 0;
+        //if a fix color is set use this one
         if (staticColor) {
             return staticColor;
         }
-        var fractionSize = numOfStars / 3;
-        var color = 'default';
+        //calculate size of smallest fraction
+        let fractionSize = numOfStars / 3;
+        //apply color by fraction
+        let color = 'default';
         if (rating > 0) {
             color = 'negative';
         }
@@ -66053,826 +66111,478 @@ var StarRatingUtils = /** @class */ (function () {
             color = 'positive';
         }
         return color;
-    };
-    StarRatingUtils.isDigitKeyEventCode = function (eventCode) {
-        return eventCode.indexOf('Digit') === 0;
-    };
-    return StarRatingUtils;
-}());
-var StarRating = /** @class */ (function () {
-    function StarRating(config) {
-        this.config = config;
-        this.classEmpty = this.config.classEmpty;
-        this.classHalf = this.config.classHalf;
-        this.classFilled = this.config.classFilled;
-        this.pathEmpty = this.config.svgPathEmpty;
-        this.pathHalf = this.config.svgPathHalf;
-        this.pathFilled = this.config.svgPathFilled;
-        if ('getColor' in this.config &&
-            typeof this.config.getColor === 'function') {
-            this.getColor = this.config.getColor;
-        }
-        if ('getHalfStarVisible' in this.config &&
-            typeof this.config.getHalfStarVisible === 'function') {
-            this.getHalfStarVisible = this.config.getHalfStarVisible;
-        }
-        this.numOfStars = this.config.numOfStars;
-        this.rating = 0;
-        this.step = 1;
     }
-    Object.defineProperty(StarRating.prototype, "rating", {
-        get: function () {
-            return this._rating;
-        },
-        set: function (value) {
-            this.setRating(value);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "showHalfStars", {
-        get: function () {
-            return this._showHalfStars;
-        },
-        set: function (value) {
-            this._showHalfStars = !!value;
-            this.setHalfStarVisible();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "id", {
-        get: function () {
-            return this._id;
-        },
-        set: function (value) {
-            this._id = value || '';
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "focus", {
-        get: function () {
-            return this._focus;
-        },
-        set: function (value) {
-            this._focus = !!value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "labelText", {
-        get: function () {
-            return this._labelText;
-        },
-        set: function (value) {
-            this._labelText = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "labelPosition", {
-        get: function () {
-            return this._labelPosition;
-        },
-        set: function (value) {
-            this._labelPosition = value || this.config.labelPosition;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "labelVisible", {
-        get: function () {
-            return this._labelVisible;
-        },
-        set: function (value) {
-            this._labelVisible = !!value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "hoverEnabled", {
-        get: function () {
-            return this._hoverEnabled;
-        },
-        set: function (value) {
-            this._hoverEnabled = value !== undefined ? !!value : false;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "staticColor", {
-        get: function () {
-            return this._staticColor || this.config.staticColor || undefined;
-        },
-        set: function (value) {
-            this._staticColor = value;
-            this.setColor();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "direction", {
-        get: function () {
-            return this._direction;
-        },
-        set: function (value) {
-            this._direction = value || undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "numOfStars", {
-        get: function () {
-            return this._numOfStars;
-        },
-        set: function (value) {
-            this._numOfStars = value > 0 ? value : this.config.numOfStars;
-            this.stars = StarRatingUtils.getStarsArray(this.numOfStars);
-            this.setColor();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "hoverRating", {
-        get: function () {
-            return this._hoverRating;
-        },
-        set: function (value) {
-            this._hoverRating = value > 0 ? value : 0;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "speed", {
-        get: function () {
-            return this._speed;
-        },
-        set: function (value) {
-            this._speed = value || this.config.speed;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "size", {
-        get: function () {
-            return this._size || this.config.size;
-        },
-        set: function (value) {
-            this._size = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "starType", {
-        get: function () {
-            return this._starType || this.config.starType;
-        },
-        set: function (value) {
-            this._starType = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "space", {
-        get: function () {
-            return this._space;
-        },
-        set: function (value) {
-            this._space = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "readOnly", {
-        get: function () {
-            return this._readOnly;
-        },
-        set: function (value) {
-            this._readOnly = !!value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "disabled", {
-        get: function () {
-            return this._disabled;
-        },
-        set: function (value) {
-            this._disabled = !!value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRating.prototype, "step", {
-        get: function () {
-            return this._step;
-        },
-        set: function (value) {
-            this._step = value > 0 ? value : 1;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    StarRating.prototype.setRating = function (value) {
-        var newRating = 0;
-        if (value >= 0 && value <= this.numOfStars) {
+    getHalfStarVisible(rating) {
+        return Math.abs(rating % 1) > 0;
+    }
+};
+StarRatingConfig = __decorate([
+    core_1.Injectable()
+], StarRatingConfig);
+exports.StarRatingConfig = StarRatingConfig;
+//# sourceMappingURL=star-rating-config.js.map
+
+/***/ }),
+
+/***/ "./node_modules/angular-star-rating/dist/src/star-rating.component.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/angular-star-rating/dist/src/star-rating.component.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+const star_rating_config_1 = __webpack_require__(/*! ./star-rating-config */ "./node_modules/angular-star-rating/dist/src/star-rating-config.js");
+let StarRatingComponent = StarRatingComponent_1 = class StarRatingComponent {
+    constructor() {
+        /////////////////////////////////////////////
+        //Output
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        this.onClick = new core_1.EventEmitter();
+        this.onRatingChange = new core_1.EventEmitter();
+        let config = new star_rating_config_1.StarRatingConfig();
+        //set default ctrl props
+        this.classEmpty = config.classEmpty;
+        this.classHalf = config.classHalf;
+        this.classFilled = config.classFilled;
+        this.pathEmpty = config.svgPathEmpty;
+        this.pathHalf = config.svgPathHalf;
+        this.pathFilled = config.svgPathFilled;
+        //set default Component Inputs
+        if ('getColor' in config && typeof config.getColor === "function") {
+            this.getColor = config.getColor;
+        }
+        if ('getHalfStarVisible' in config && typeof config.getHalfStarVisible === "function") {
+            this.getHalfStarVisible = config.getHalfStarVisible;
+        }
+        this.numOfStars = config.numOfStars;
+        this.rating = 0;
+    }
+    //Static methods
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * _getStarsArray
+     *
+     * returns an array of increasing numbers starting at 1
+     *
+     * @param numOfStars
+     * @returns {Array}
+     */
+    static _getStarsArray(numOfStars) {
+        let stars = [];
+        for (let i = 0; i < numOfStars; i++) {
+            stars.push(i + 1);
+        }
+        return stars;
+    }
+    /**
+     * _getHalfStarVisible
+     *
+     * Returns true if there should be a half star visible, and false if not.
+     *
+     * @param rating
+     * @returns {boolean}
+     */
+    static _getHalfStarVisible(rating) {
+        return Math.abs(rating % 1) > 0;
+    }
+    /**
+     * _getColor
+     *
+     * The default function for color calculation
+     * based on the current rating and the the number of stars possible.
+     * If a staticColor is set the function will use it as return value.
+     *
+     * @param rating
+     * @param numOfStars
+     * @param staticColor
+     * @returns {starRatingColor}
+     */
+    static _getColor(rating, numOfStars, staticColor) {
+        rating = rating || 0;
+        //if a fix color is set use this one
+        if (staticColor) {
+            return staticColor;
+        }
+        //calculate size of smallest fraction
+        let fractionSize = numOfStars / 3;
+        //apply color by fraction
+        let color = 'default';
+        if (rating > 0) {
+            color = 'negative';
+        }
+        if (rating > fractionSize) {
+            color = 'ok';
+        }
+        if (rating > fractionSize * 2) {
+            color = 'positive';
+        }
+        return color;
+    }
+    get id() {
+        return this._id;
+    }
+    set id(value) {
+        this._id = value || '';
+    }
+    get labelText() {
+        return this._labelText;
+    }
+    set labelText(value) {
+        this._labelText = value;
+    }
+    get labelPosition() {
+        return this._labelPosition;
+    }
+    set labelPosition(value) {
+        this._labelPosition = value || this.config.labelPosition;
+    }
+    get labelVisible() {
+        return this._labelVisible;
+    }
+    set labelVisible(value) {
+        this._labelVisible = !!value;
+    }
+    get staticColor() {
+        return this._staticColor;
+    }
+    set staticColor(value) {
+        this._staticColor = value || undefined;
+        //update color.
+        this.setColor();
+    }
+    get direction() {
+        return this._direction;
+    }
+    set direction(value) {
+        this._direction = value || undefined;
+    }
+    get numOfStars() {
+        return this._numOfStars;
+    }
+    set numOfStars(value) {
+        this._numOfStars = (value > 0) ? value : this.config.numOfStars;
+        //update stars array
+        this.stars = StarRatingComponent_1._getStarsArray(this.numOfStars);
+        //update color
+        this.setColor();
+    }
+    get speed() {
+        return this._speed;
+    }
+    set speed(value) {
+        this._speed = value || this.config.speed;
+    }
+    get size() {
+        return this._size;
+    }
+    set size(value) {
+        this._size = value || this.config.size;
+    }
+    get starType() {
+        return this._starType;
+    }
+    set starType(value) {
+        this._starType = value || this.config.starType;
+    }
+    get space() {
+        return this._space;
+    }
+    set space(value) {
+        this._space = value;
+    }
+    get readOnly() {
+        return this._readOnly;
+    }
+    set readOnly(value) {
+        this._readOnly = !!value;
+    }
+    get disabled() {
+        return this._disabled;
+    }
+    set disabled(value) {
+        this._disabled = !!value;
+    }
+    get rating() {
+        return this._rating;
+    }
+    set rating(value) {
+        //validate and apply newRating
+        let newRating = 0;
+        if (value >= 0
+            && value <= this.numOfStars) {
             newRating = value;
         }
+        //limit max value to max number of stars
         if (value > this.numOfStars) {
             newRating = this.numOfStars;
         }
         this._rating = newRating;
-        this.ratingAsInteger = parseInt(this._rating.toString(), 10);
+        //update ratingAsInteger. rating parsed to int for the value-[n] modifier
+        this.ratingAsInteger = parseInt(this._rating.toString());
+        //update halfStarsVisible
         this.setHalfStarVisible();
+        //update calculated Color
         this.setColor();
-    };
-    StarRating.prototype.svgVisible = function () {
-        return this.starType === 'svg';
-    };
-    StarRating.prototype.interactionPossible = function () {
-        return !this.readOnly && !this.disabled;
-    };
-    StarRating.prototype.setColor = function (useHoverValue) {
-        if (useHoverValue === void 0) { useHoverValue = false; }
-        var ratingValue = useHoverValue ? this.hoverRating : this.rating;
-        if (typeof this.getColor === 'function') {
-            this.color = this.getColor(ratingValue, this.numOfStars, this.staticColor);
+        //fire onRatingChange event
+        let $event = { rating: this._rating };
+        this.onRatingChange.emit($event);
+    }
+    get showHalfStars() {
+        return this._showHalfStars;
+    }
+    set showHalfStars(value) {
+        this._showHalfStars = !!value;
+        //update halfStarVisible
+        this.setHalfStarVisible();
+    }
+    svgVisible() {
+        return this.starType === "svg";
+    }
+    setColor() {
+        //check if custom function is given
+        if (typeof this.getColor === "function") {
+            this.color = this.getColor(this.rating, this.numOfStars, this.staticColor);
         }
         else {
-            this.color = StarRatingUtils.getColor(ratingValue, this.numOfStars, this.staticColor);
+            this.color = StarRatingComponent_1._getColor(this.rating, this.numOfStars, this.staticColor);
         }
-    };
-    StarRating.prototype.setHalfStarVisible = function () {
+    }
+    setHalfStarVisible() {
+        //update halfStarVisible
         if (this.showHalfStars) {
-            if (typeof this.getHalfStarVisible === 'function') {
+            //check if custom function is given
+            if (typeof this.getHalfStarVisible === "function") {
                 this.halfStarVisible = this.getHalfStarVisible(this.rating);
             }
             else {
-                this.halfStarVisible = StarRatingUtils.getHalfStarVisible(this.rating);
+                this.halfStarVisible = StarRatingComponent_1._getHalfStarVisible(this.rating);
             }
         }
         else {
             this.halfStarVisible = false;
         }
-    };
-    StarRating.prototype.getComponentClassNames = function () {
-        var classNames = [];
-        classNames.push(this.rating ? 'value-' + this.ratingAsInteger : 'value-0');
-        classNames.push(this.halfStarVisible ? 'half' : '');
-        classNames.push(this.hoverEnabled ? 'hover' : '');
-        var hoverRating = this.hoverRating
-            ? 'hover-' + this.hoverRating
-            : 'hover-0';
-        classNames.push(this.hoverEnabled ? hoverRating : '');
-        classNames.push(this.space ? 'space-' + this.space : '');
-        classNames.push(this.labelPosition ? 'label-' + this.labelPosition : '');
-        classNames.push(this.color ? 'color-' + this.color : '');
-        classNames.push(this.starType ? 'star-' + this.starType : '');
-        classNames.push(this.speed);
-        classNames.push(this.size);
-        classNames.push(this.readOnly ? 'read-only' : '');
-        classNames.push(this.disabled ? 'disabled' : '');
-        classNames.push(this.direction ? 'direction-' + this.direction : '');
-        return classNames.join(' ');
-    };
-    StarRating.prototype.increment = function () {
-        var absDiff = Math.abs(this.rating % this.step);
-        this.rating = this.rating + (absDiff > 0 ? this.step - absDiff : this.step);
-    };
-    StarRating.prototype.decrement = function () {
-        var absDiff = Math.abs(this.rating % this.step);
-        this.rating = this.rating - (absDiff > 0 ? absDiff : this.step);
-    };
-    StarRating.prototype.reset = function () {
-        this.rating = 0;
-    };
-    return StarRating;
-}());
-var StarRatingConfigService = /** @class */ (function () {
-    function StarRatingConfigService() {
-        this._classEmpty = 'default-star-empty-icon';
-        this._classHalf = 'default-star-half-icon';
-        this._classFilled = 'default-star-filled-icon';
-        this._numOfStars = 5;
-        this._size = 'medium';
-        this._labelPosition = 'left';
-        this._speed = 'noticeable';
-        this._starType = 'svg';
-        this._assetsPath = 'assets/images/';
-        this._svgPath = this.assetsPath + 'star-rating.icons.svg';
-        this._svgEmptySymbolId = 'star-empty';
-        this._svgHalfSymbolId = 'star-half';
-        this._svgFilledSymbolId = 'star-filled';
-        this._svgPathEmpty = this.svgPath + '#' + this.svgEmptySymbolId;
-        this._svgPathHalf = this.svgPath + '#' + this.svgHalfSymbolId;
-        this._svgPathFilled = this.svgPath + '#' + this.svgFilledSymbolId;
     }
-    Object.defineProperty(StarRatingConfigService.prototype, "classEmpty", {
-        get: function () {
-            return this._classEmpty;
-        },
-        set: function (classEmpty) {
-            this._classEmpty = classEmpty;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "classHalf", {
-        get: function () {
-            return this._classHalf;
-        },
-        set: function (classHalf) {
-            this._classHalf = classHalf;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "classFilled", {
-        get: function () {
-            return this._classFilled;
-        },
-        set: function (classFilled) {
-            this._classFilled = classFilled;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "numOfStars", {
-        get: function () {
-            return this._numOfStars;
-        },
-        set: function (numOfStars) {
-            this._numOfStars = numOfStars;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "size", {
-        get: function () {
-            return this._size;
-        },
-        set: function (size) {
-            this._size = size;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "staticColor", {
-        get: function () {
-            return this._staticColor;
-        },
-        set: function (value) {
-            this._staticColor = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "labelPosition", {
-        get: function () {
-            return this._labelPosition;
-        },
-        set: function (labelPosition) {
-            this._labelPosition = labelPosition;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "speed", {
-        get: function () {
-            return this._speed;
-        },
-        set: function (speed) {
-            this._speed = speed;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "starType", {
-        get: function () {
-            return this._starType;
-        },
-        set: function (starType) {
-            this._starType = starType;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "assetsPath", {
-        get: function () {
-            return this._assetsPath;
-        },
-        set: function (assetsPath) {
-            this._assetsPath = assetsPath;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgPath", {
-        get: function () {
-            return this._svgPath;
-        },
-        set: function (svgPath) {
-            this._svgPath = svgPath;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgEmptySymbolId", {
-        get: function () {
-            return this._svgEmptySymbolId;
-        },
-        set: function (svgEmptySymbolId) {
-            this._svgEmptySymbolId = svgEmptySymbolId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgHalfSymbolId", {
-        get: function () {
-            return this._svgHalfSymbolId;
-        },
-        set: function (svgHalfSymbolId) {
-            this._svgHalfSymbolId = svgHalfSymbolId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgFilledSymbolId", {
-        get: function () {
-            return this._svgFilledSymbolId;
-        },
-        set: function (svgFilledSymbolId) {
-            this._svgFilledSymbolId = svgFilledSymbolId;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgPathEmpty", {
-        get: function () {
-            return this._svgPathEmpty;
-        },
-        set: function (svgPathEmpty) {
-            this._svgPathEmpty = svgPathEmpty;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgPathHalf", {
-        get: function () {
-            return this._svgPathHalf;
-        },
-        set: function (svgPathHalf) {
-            this._svgPathHalf = svgPathHalf;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(StarRatingConfigService.prototype, "svgPathFilled", {
-        get: function () {
-            return this._svgPathFilled;
-        },
-        set: function (svgPathFilled) {
-            this._svgPathFilled = svgPathFilled;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    StarRatingConfigService.prototype.getColor = function (rating, numOfStars, staticColor) {
-        rating = rating || 0;
-        if (staticColor) {
-            return staticColor;
-        }
-        var fractionSize = numOfStars / 3;
-        var color = 'default';
-        if (rating > 0) {
-            color = 'negative';
-        }
-        if (rating > fractionSize) {
-            color = 'ok';
-        }
-        if (rating > fractionSize * 2) {
-            color = 'positive';
-        }
-        return color;
-    };
-    StarRatingConfigService.prototype.getHalfStarVisible = function (rating) {
-        return Math.abs(rating % 1) > 0;
-    };
-    return StarRatingConfigService;
-}());
-var StarRatingComponent = /** @class */ (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(StarRatingComponent, _super);
-    function StarRatingComponent(config) {
-        var _this = _super.call(this, config) || this;
-        _this.starClickChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.ratingChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.hoverRatingChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        return _this;
-    }
-    StarRatingComponent.prototype.saveOnClick = function ($event) {
-        if (this.starClickChange) {
-            this.starClickChange.emit($event);
-        }
-    };
-    StarRatingComponent.prototype.saveOnRatingChange = function ($event) {
-        if (this.ratingChange) {
-            this.ratingChange.emit($event);
-        }
-    };
-    StarRatingComponent.prototype.saveOnHover = function ($event) {
-        if (this.hoverRatingChange) {
-            this.hoverRatingChange.emit($event);
-        }
-    };
-    StarRatingComponent.prototype.onKeyDown = function (event) {
-        var _this = this;
-        if (!this.interactionPossible()) {
-            return;
-        }
-        var handlers = {
-            Minus: function () { return _this.decrement(); },
-            ArrowDown: function () { return _this.decrement(); },
-            ArrowLeft: function () { return _this.decrement(); },
-            Plus: function () { return _this.increment(); },
-            ArrowRight: function () { return _this.increment(); },
-            ArrowUp: function () { return _this.increment(); },
-            Backspace: function () { return _this.reset(); },
-            Delete: function () { return _this.reset(); },
-            Digit0: function () { return _this.reset(); }
-        };
-        var handleDigits = function (eventCode) {
-            var dStr = 'Digit';
-            var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
-            _this.rating = digit;
-        };
-        if (handlers[event['code']] ||
-            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
-            if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
-                handleDigits(event['code']);
-            }
-            else {
-                handlers[event['code']]();
-            }
-            event.preventDefault();
-            event.stopPropagation();
-        }
-    };
-    StarRatingComponent.prototype.onStarHover = function (rating) {
-        if (!this.interactionPossible() || !this.hoverEnabled) {
-            return;
-        }
-        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
-        this.setColor(true);
-        var $event = { hoverRating: this.hoverRating };
-        this.saveOnHover($event);
-    };
-    StarRatingComponent.prototype.setRating = function (value) {
-        var initValue = this.rating;
-        _super.prototype.setRating.call(this, value);
-        if (initValue !== this.rating) {
-            var $event = { rating: this.rating };
-            this.saveOnRatingChange($event);
-        }
-    };
-    StarRatingComponent.prototype.onStarClicked = function (rating) {
-        if (!this.interactionPossible()) {
+    /**
+     * onStarClicked
+     *
+     * Is fired when a star is clicked. And updated the rating value.
+     * This function returns if the disabled or readOnly
+     * property is set. If provided it emits the onClick event
+     * handler with the actual rating value.
+     *
+     * @param rating
+     */
+    onStarClicked(rating) {
+        //fire onClick event
+        let $event = { rating: rating };
+        if (this.readOnly || this.disabled) {
             return;
         }
         this.rating = rating;
-        var onClickEventObject = {
+        let onClickEventObject = {
             rating: this.rating
         };
-        this.saveOnClick(onClickEventObject);
-    };
-    return StarRatingComponent;
-}(StarRating));
-StarRatingComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{
-                selector: 'star-rating',
-                inputs: [
-                    'getHalfStarVisible',
-                    'getColor',
-                    'showHalfStars',
-                    'hoverEnabled',
-                    'rating',
-                    'step',
-                    'disabled',
-                    'readOnly',
-                    'space',
-                    'starType',
-                    'size',
-                    'speed',
-                    'numOfStars',
-                    'direction',
-                    'staticColor',
-                    'labelPosition',
-                    'labelText',
-                    'id'
-                ],
-                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
-                styles: [],
-                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-half {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>\n"
-            },] },
-];
-StarRatingComponent.ctorParameters = function () { return [
-    { type: StarRatingConfigService, },
-]; };
-var STAR_RATING_CONTROL_ACCESSOR = {
-    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NG_VALUE_ACCESSOR"],
-    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(function () { return StarRatingControlComponent; }),
-    multi: true
+        this.onClick.emit(onClickEventObject);
+    }
+    ngOnChanges(changes) {
+        let valueChanged = function (key, changes) {
+            if (key in changes) {
+                if (
+                //(changes[key].previousValue != 'UNINITIALIZED_VALUE' && changes[key].currentValue !== undefined)
+                changes[key].currentValue != changes[key].previousValue) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        //---------------------------------------
+        //functions
+        //boolean
+        if (valueChanged('showHalfStars', changes)) {
+            this.showHalfStars = changes['showHalfStars'].currentValue;
+        }
+        if (valueChanged('space', changes)) {
+            this.space = changes['space'].currentValue;
+        }
+        if (valueChanged('readOnly', changes)) {
+            this.readOnly = changes['readOnly'].currentValue;
+        }
+        if (valueChanged('disabled', changes)) {
+            this.disabled = !!changes['disabled'].currentValue;
+        }
+        //number
+        if (valueChanged('rating', changes)) {
+            this.rating = changes['rating'].currentValue;
+        }
+        if (valueChanged('numOfStars', changes)) {
+            this.numOfStars = changes['numOfStars'].currentValue;
+        }
+        //string
+        if (valueChanged('labelText', changes)) {
+            this.labelText = changes['labelText'].currentValue;
+        }
+        if (valueChanged('staticColor', changes)) {
+            this.staticColor = changes['staticColor'].currentValue;
+        }
+        if (valueChanged('direction', changes)) {
+            this.direction = changes['direction'].currentValue;
+        }
+        if (valueChanged('size', changes)) {
+            this.size = changes['size'].currentValue;
+        }
+        if (valueChanged('speed', changes)) {
+            this.speed = changes['speed'].currentValue;
+        }
+        if (valueChanged('labelPosition', changes)) {
+            this.labelPosition = changes['labelPosition'].currentValue;
+        }
+        if (valueChanged('starType', changes)) {
+            this.starType = changes['starType'].currentValue;
+        }
+    }
 };
-var StarRatingControlComponent = /** @class */ (function (_super) {
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(StarRatingControlComponent, _super);
-    function StarRatingControlComponent(config) {
-        var _this = _super.call(this, config) || this;
-        _this.starClickChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.ratingChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.hoverRatingChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        _this.onModelChangeRegistered = false;
-        _this.onTouchRegistered = false;
-        return _this;
-    }
-    StarRatingControlComponent.prototype.saveOnClick = function ($event) {
-        if (this.starClickChange) {
-            this.starClickChange.emit($event);
-        }
-    };
-    StarRatingControlComponent.prototype.saveOnRatingChange = function ($event) {
-        if (this.ratingChange) {
-            this.ratingChange.emit($event);
-        }
-    };
-    StarRatingControlComponent.prototype.saveOnHover = function ($event) {
-        if (this.hoverRatingChange) {
-            this.hoverRatingChange.emit($event);
-        }
-    };
-    StarRatingControlComponent.prototype.saveOnTouch = function () {
-        if (this.onTouchRegistered) {
-            this.onTouch();
-        }
-    };
-    StarRatingControlComponent.prototype.saveOnModelChange = function (value) {
-        if (this.onModelChangeRegistered) {
-            this.onModelChange(value);
-        }
-    };
-    StarRatingControlComponent.prototype.onKeyDown = function (event) {
-        var _this = this;
-        if (!this.interactionPossible()) {
-            return;
-        }
-        var handlers = {
-            Minus: function () { return _this.decrement(); },
-            ArrowDown: function () { return _this.decrement(); },
-            ArrowLeft: function () { return _this.decrement(); },
-            Plus: function () { return _this.increment(); },
-            ArrowRight: function () { return _this.increment(); },
-            ArrowUp: function () { return _this.increment(); },
-            Backspace: function () { return _this.reset(); },
-            Delete: function () { return _this.reset(); },
-            Digit0: function () { return _this.reset(); }
-        };
-        var handleDigits = function (eventCode) {
-            var dStr = 'Digit';
-            var digit = parseInt(eventCode.substr(dStr.length, eventCode.length - 1), 10);
-            _this.rating = digit;
-        };
-        if (handlers[event['code']] ||
-            StarRatingUtils.isDigitKeyEventCode(event['code'])) {
-            if (StarRatingUtils.isDigitKeyEventCode(event['code'])) {
-                handleDigits(event['code']);
-            }
-            else {
-                handlers[event['code']]();
-            }
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        this.saveOnTouch();
-    };
-    StarRatingControlComponent.prototype.onBlur = function (event) {
-        this.focus = false;
-        event.preventDefault();
-        event.stopPropagation();
-        this.saveOnTouch();
-    };
-    StarRatingControlComponent.prototype.onFocus = function (event) {
-        this.focus = true;
-        event.preventDefault();
-        event.stopPropagation();
-        this.saveOnTouch();
-    };
-    StarRatingControlComponent.prototype.onStarHover = function (rating) {
-        if (!this.interactionPossible() || !this.hoverEnabled) {
-            return;
-        }
-        this.hoverRating = rating ? parseInt(rating.toString(), 10) : 0;
-        var $event = { hoverRating: this.hoverRating };
-        this.saveOnHover($event);
-    };
-    StarRatingControlComponent.prototype.writeValue = function (obj) {
-        this.rating = obj;
-    };
-    StarRatingControlComponent.prototype.registerOnChange = function (fn) {
-        this.onModelChange = fn;
-        this.onModelChangeRegistered = true;
-    };
-    StarRatingControlComponent.prototype.registerOnTouched = function (fn) {
-        this.onTouch = fn;
-        this.onTouchRegistered = true;
-    };
-    StarRatingControlComponent.prototype.setRating = function (value) {
-        var initValue = this.rating;
-        _super.prototype.setRating.call(this, value);
-        if (initValue !== this.rating) {
-            var $event = { rating: this.rating };
-            this.saveOnRatingChange($event);
-            this.saveOnModelChange(this.rating);
-        }
-    };
-    StarRatingControlComponent.prototype.onStarClicked = function (rating) {
-        if (!this.interactionPossible()) {
-            return;
-        }
-        this.rating = rating;
-        var onClickEventObject = {
-            rating: this.rating
-        };
-        this.saveOnClick(onClickEventObject);
-    };
-    return StarRatingControlComponent;
-}(StarRating));
-StarRatingControlComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"], args: [{
-                selector: 'star-rating-control',
-                providers: [STAR_RATING_CONTROL_ACCESSOR],
-                inputs: [
-                    'getHalfStarVisible',
-                    'getColor',
-                    'showHalfStars',
-                    'hoverEnabled',
-                    'rating',
-                    'step',
-                    'disabled',
-                    'readOnly',
-                    'space',
-                    'starType',
-                    'size',
-                    'speed',
-                    'numOfStars',
-                    'direction',
-                    'staticColor',
-                    'labelPosition',
-                    'labelText',
-                    'id'
-                ],
-                outputs: ['starClickChange', 'ratingChange', 'hoverRatingChange'],
-                styles: [],
-                template: "<div id=\"{{id}}\"\n  class=\"rating {{getComponentClassNames()}}\"\n  tabindex=\"0\"\n  (keydown)=\"onKeyDown($event)\"\n  (blur)=\"onBlur($event)\"\n  (focus)=\"onFocus($event)\"\n  (mouseleave)=\"onStarHover(0)\">\n    <div *ngIf=\"labelText\" class=\"label-value\">{{labelText}}</div>\n    <div class=\"star-container\">\n        <div class=\"star\"\n          (mouseenter)=\"onStarHover(star)\"\n          *ngFor=\"let star of stars\"\n          (click)=\"onStarClicked(star)\">\n            <i *ngIf=\"!svgVisible()\" class=\"star-empty {{classEmpty}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-half {{classHalf}}\"></i>\n            <i *ngIf=\"!svgVisible()\" class=\"star-filled {{classFilled}}\"></i>\n            <svg *ngIf=\"svgVisible()\" class=\"star-empty\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathEmpty\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-half\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathHalf\"></use>\n            </svg>\n            <svg *ngIf=\"svgVisible()\" class=\"star-filled\">\n                <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.xlink:href]=\"pathFilled\"></use>\n            </svg>\n        </div>\n    </div>\n</div>\n"
-            },] },
-];
-StarRatingControlComponent.ctorParameters = function () { return [
-    { type: StarRatingConfigService, },
-]; };
-var DECLARATIONS = [
-    StarRatingComponent,
-    StarRatingControlComponent
-];
-var EXPORTS = [DECLARATIONS];
-var StarRatingModule = /** @class */ (function () {
-    function StarRatingModule() {
-    }
-    StarRatingModule.forRoot = function () {
-        return {
-            ngModule: StarRatingModule,
-            providers: [
-                StarRatingConfigService
-            ]
-        };
-    };
-    StarRatingModule.forChild = function () {
-        return {
-            ngModule: StarRatingModule,
-            providers: []
-        };
-    };
-    return StarRatingModule;
-}());
-StarRatingModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"], args: [{
-                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"]],
-                declarations: [DECLARATIONS],
-                exports: [EXPORTS]
-            },] },
-];
-StarRatingModule.ctorParameters = function () { return []; };
-
-
-//# sourceMappingURL=angular-star-rating.js.map
-
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "id", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "labelText", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "labelPosition", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], StarRatingComponent.prototype, "labelVisible", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "staticColor", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "direction", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number),
+    __metadata("design:paramtypes", [Number])
+], StarRatingComponent.prototype, "numOfStars", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "speed", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "size", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "starType", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String),
+    __metadata("design:paramtypes", [String])
+], StarRatingComponent.prototype, "space", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], StarRatingComponent.prototype, "readOnly", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], StarRatingComponent.prototype, "disabled", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number),
+    __metadata("design:paramtypes", [Number])
+], StarRatingComponent.prototype, "rating", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean),
+    __metadata("design:paramtypes", [Boolean])
+], StarRatingComponent.prototype, "showHalfStars", null);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Function)
+], StarRatingComponent.prototype, "getColor", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Function)
+], StarRatingComponent.prototype, "getHalfStarVisible", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], StarRatingComponent.prototype, "onClick", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], StarRatingComponent.prototype, "onRatingChange", void 0);
+StarRatingComponent = StarRatingComponent_1 = __decorate([
+    core_1.Component({
+        selector: 'star-rating-comp',
+        //templateUrl: 'star-rating.component.html',
+        template: `
+        <div id="{{id}}"
+     class="rating {{rating?'value-'+ratingAsInteger:'value-0'}} {{readOnly?'read-only':''}} {{disabled?'disabled':''}} {{halfStarVisible?'half':''}} {{space?'space-'+space:''}} {{labelVisible?'label-'+labelVisible:''}} {{labelPosition?'label-'+labelPosition:''}} {{color?'color-'+color:''}} {{starType?'star-'+starType:''}} {{speed}} {{size}} {{direction?'direction-'+direction:''}}"
+    >
+                <div *ngIf="labelVisible" class="label-value">{{labelText}}</div>
+                <div class="star-container">
+                    <div class="star"
+                    *ngFor="let star of stars"
+                    (click)="onStarClicked(star)">
+                        <i *ngIf="!svgVisible()" class="star-empty {{classEmpty}}"></i>
+                        <i *ngIf="!svgVisible()" class="star-empty {{classHalf}}"></i>
+                        <i *ngIf="!svgVisible()" class="star-filled {{classFilled}}"></i>
+                        <svg *ngIf="svgVisible()" class="star-empty default-star-empty-icon">
+                          <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathEmpty"></use>
+                        </svg>
+                        <svg *ngIf="svgVisible()" class="star-half default-star-half-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathHalf"></use>
+                        </svg>
+                        <svg *ngIf="svgVisible()" class="star-filled default-star-filled-icon">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" [attr.xlink:href]="pathFilled"></use>
+                        </svg>
+                    </div>
+            </div>
+        </div>
+    `,
+        styles: [`
+   .center-all,.star{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.star{position:relative;width:20px;height:20px}.star i,.star svg{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:absolute;top:0;left:0;width:100%;height:100%;font-style:normal}.star i.star-filled,.star i.star-half,.star svg.star-filled,.star svg.star-half{opacity:0}.star i{top:1px;display:none}.rating.star-icon i,.star.icon i{font-size:25px;line-height:25px}.rating.star-icon i.star-empty:before,.star.icon i.star-empty:before{content:"☆"}.rating.star-icon i.star-filled:before,.rating.star-icon i.star-half:before,.star.icon i.star-filled:before,.star.icon i.star-half:before{content:"★"}.rating.star-custom-icon i,.rating.theme-kununu .star-container .star i,.star.custom-icon i{font-size:18px;line-height:18px}.star.empty i.star-filled,.star.empty i.star-half,.star.empty svg.star-filled,.star.empty svg.star-half{opacity:0}.star.empty i.star-empty,.star.empty svg.star-empty{opacity:1}.rating.value-0.half .star:nth-child(1) i.star-empty,.rating.value-0.half .star:nth-child(1) i.star-filled,.rating.value-0.half .star:nth-child(1) svg.star-empty,.rating.value-0.half .star:nth-child(1) svg.star-filled,.rating.value-1.half .star-container .star:nth-child(2) i.star-empty,.rating.value-1.half .star-container .star:nth-child(2) i.star-filled,.rating.value-1.half .star-container .star:nth-child(2) svg.star-empty,.rating.value-1.half .star-container .star:nth-child(2) svg.star-filled,.rating.value-2.half .star-container .star:nth-child(3) i.star-empty,.rating.value-2.half .star-container .star:nth-child(3) i.star-filled,.rating.value-2.half .star-container .star:nth-child(3) svg.star-empty,.rating.value-2.half .star-container .star:nth-child(3) svg.star-filled,.rating.value-3.half .star-container .star:nth-child(4) i.star-empty,.rating.value-3.half .star-container .star:nth-child(4) i.star-filled,.rating.value-3.half .star-container .star:nth-child(4) svg.star-empty,.rating.value-3.half .star-container .star:nth-child(4) svg.star-filled,.rating.value-4.half .star-container .star:nth-child(5) i.star-empty,.rating.value-4.half .star-container .star:nth-child(5) i.star-filled,.rating.value-4.half .star-container .star:nth-child(5) svg.star-empty,.rating.value-4.half .star-container .star:nth-child(5) svg.star-filled,.rating.value-5.half .star-container .star:nth-child(6) i.star-empty,.rating.value-5.half .star-container .star:nth-child(6) i.star-filled,.rating.value-5.half .star-container .star:nth-child(6) svg.star-empty,.rating.value-5.half .star-container .star:nth-child(6) svg.star-filled,.star.half i.star-empty,.star.half i.star-filled,.star.half svg.star-empty,.star.half svg.star-filled{opacity:0}.rating.value-0.half .star:nth-child(1) i.star-half,.rating.value-0.half .star:nth-child(1) svg.star-half,.rating.value-1.half .star-container .star:nth-child(2) i.star-half,.rating.value-1.half .star-container .star:nth-child(2) svg.star-half,.rating.value-2.half .star-container .star:nth-child(3) i.star-half,.rating.value-2.half .star-container .star:nth-child(3) svg.star-half,.rating.value-3.half .star-container .star:nth-child(4) i.star-half,.rating.value-3.half .star-container .star:nth-child(4) svg.star-half,.rating.value-4.half .star-container .star:nth-child(5) i.star-half,.rating.value-4.half .star-container .star:nth-child(5) svg.star-half,.rating.value-5.half .star-container .star:nth-child(6) i.star-half,.rating.value-5.half .star-container .star:nth-child(6) svg.star-half,.star.half i.star-half,.star.half svg.star-half{opacity:1}.rating.value-1 .star-container .star:nth-child(-n+1) i.star-empty,.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-empty,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-empty,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-empty,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-empty,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-empty,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-empty,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-empty,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-empty,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-empty,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-empty,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-empty,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-empty,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-empty,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-empty,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-empty,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-empty,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-empty,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-empty,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-empty,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-empty,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-empty,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-empty,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-empty,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled,.star.filled i.star-empty,.star.filled i.star-filled,.star.filled svg.star-empty,.star.filled svg.star-filled{opacity:0}.rating.value-1 .star-container .star:nth-child(-n+1) i.star-filled,.rating.value-1 .star-container .star:nth-child(-n+1) svg.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) i.star-filled,.rating.value-2 .star-container .star:nth-child(-n+2) svg.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) i.star-filled,.rating.value-3 .star-container .star:nth-child(-n+3) svg.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) i.star-filled,.rating.value-4 .star-container .star:nth-child(-n+4) svg.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) i.star-filled,.rating.value-5 .star-container .star:nth-child(-n+5) svg.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) i.star-filled,.rating.value-6 .star-container .star:nth-child(-n+6) svg.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) i.star-filled,.rating.value-7 .star-container .star:nth-child(-n+7) svg.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) i.star-filled,.rating.value-8 .star-container .star:nth-child(-n+8) svg.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) i.star-filled,.rating.value-9 .star-container .star:nth-child(-n+9) svg.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) i.star-filled,.rating.value-10 .star-container .star:nth-child(-n+10) svg.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) i.star-filled,.rating.value-11 .star-container .star:nth-child(-n+11) svg.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) i.star-filled,.rating.value-12 .star-container .star:nth-child(-n+12) svg.star-filled,.star.filled i.star-filled,.star.filled svg.star-filled{opacity:1}.star-container .star svg,.star.default svg{fill:#999}.star-container .star i,.star.default i{color:#999}.rating.value-0.half .star svg,.rating.value-1 .star-container .star svg,.rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star svg,.rating.value-2 .star-container .star svg,.rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star svg,.rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star svg,.rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star svg,.rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star svg,.star.negative svg{fill:#f03c56}.rating.value-0.half .star i,.rating.value-1 .star-container .star i,.rating.value-1.half .star-container .rating.value-0.star:nth-child(2) .star i,.rating.value-2 .star-container .star i,.rating.value-2.half .star-container .rating.value-0.star:nth-child(3) .star i,.rating.value-3.half .star-container .rating.value-0.star:nth-child(4) .star i,.rating.value-4.half .star-container .rating.value-0.star:nth-child(5) .star i,.rating.value-5.half .star-container .rating.value-0.star:nth-child(6) .star i,.star.negative i{color:#f03c56}.rating.value-3 .star-container .star svg,.star.middle svg{fill:#ffc058}.rating.value-3 .star-container .star i,.star.middle i{color:#ffc058}.rating.value-4 .star-container .star svg,.rating.value-5 .star-container .star svg,.rating.value-6 .star-container .star svg,.rating.value-7 .star-container .star svg,.rating.value-8 .star-container .star svg,.rating.value-9 .star-container .star svg,.rating.value-10 .star-container .star svg,.rating.value-11 .star-container .star svg,.rating.value-12 .star-container .star svg,.star.positive svg{fill:#7ed321}.rating.value-4 .star-container .star i,.rating.value-5 .star-container .star i,.rating.value-6 .star-container .star i,.rating.value-7 .star-container .star i,.rating.value-8 .star-container .star i,.rating.value-9 .star-container .star i,.rating.value-10 .star-container .star i,.rating.value-11 .star-container .star i,.rating.value-12 .star-container .star i,.star.positive i{color:#7ed321}.rating.star-svg i,.star.svg i{display:none}.rating.star-svg svg,.star.svg svg{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.star-custom-icon svg,.rating.star-icon svg,.rating.theme-kununu .star-container .star svg,.star.custom-icon svg,.star.icon svg{display:none}.rating.star-custom-icon i,.rating.star-icon i,.rating.theme-kununu .star-container .star i,.star.custom-icon i,.star.icon i{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.small .star,.star.small{width:10px;height:9,5px}.rating.small .star i,.star.small i{font-size:11px;line-height:10px}.rating.medium .star,.star.medium{width:20px;height:20px}.rating.medium .star i,.star.medium i{font-size:25px;line-height:25px}.rating.large .star,.star.large{width:35px;height:33.3px}.rating.large .star i,.star.large i{font-size:36px;line-height:35px}.rating.disabled .star-container .star,.star.disabled{opacity:.5}.rating.direction-rtl .star-container .star i.star-half,.rating.direction-rtl .star-container .star svg.star-half,.star-container.direction-rtl .star i.star-half,.star-container.direction-rtl .star svg.star-half,.star.direction-rtl i.star-half,.star.direction-rtl svg.star-half{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.star-container.direction-ltr .star i.star-half,.star-container.direction-ltr .star svg.star-half,.star.direction-ltr i.star-half,.star.direction-ltr svg.star-half{-webkit-transform:scale(1);transform:scale(1)}.label-value{font-size:18px;line-height:18px}.label-value.small,.rating.small .label-value{font-size:9.5px;line-height:9.5px}.label-value.medium,.rating.medium .label-value{font-size:18px;line-height:25px}.label-value.large,.rating.large .label-value{font-size:28px;line-height:35px}.label-value.disabled,.rating.disabled .label-value{opacity:.5}.star-container{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-left:5px;margin-right:5px;-webkit-transition:all .3s ease;transition:all .3s ease}.star-container+.star{margin-left:5px}.star-container .star,.star-container .star i,.star-container .star svg{-webkit-transition:all .3s ease;transition:all .3s ease}.star-container svg{z-index:2}.star-container i{z-index:1}.rating.direction-rtl .star-container,.star-container.direction-rtl{direction:rtl}.star-container.direction-ltr{direction:ltr}.rating.space-no .star-container,.star-container.space-no{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.rating.space-between .star-container,.star-container.space-between{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}.rating.space-around .star-container,.star-container.space-around{-webkit-box-flex:1;-ms-flex:1 1 auto;flex:1 1 auto;-ms-flex-pack:distribute;justify-content:space-around}.rating{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-bottom:5px}.rating.label-hidden .label-value{display:none}.rating.label-visible{display:-webkit-box;display:-ms-flexbox;display:flex}.rating.label-top{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column}.rating.label-top .label-value+.star-container{margin-left:0;margin-right:0;margin-top:5px}.rating.label-left .label-value{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto}.rating.label-left .label-value+.star-container{margin-left:5px;margin-right:0}.rating.label-right{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}.rating.label-right .label-value+.star-container{margin-left:0;margin-right:5px}.rating.label-bottom{-webkit-box-orient:vertical;-webkit-box-direction:reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}.rating.label-bottom .label-value+.star-container{margin-left:0;margin-right:0;margin-bottom:5px}.rating.direction-rtl{direction:rtl}.rating.direction-ltr{direction:ltr}.rating.color-default .star-container .star svg{fill:#999}.rating.color-default .star-container .star i{color:#999}.rating.color-ok .star-container .star svg{fill:#ffc058}.rating.color-ok .star-container .star i{color:#ffc058}.rating.color-positive .star-container .star svg{fill:#7ed321}.rating.color-positive .star-container .star i{color:#7ed321}.rating.color-negative .star-container .star svg{fill:#f03c56}.rating.color-negative .star-container .star i{color:#f03c56}.rating.immediately .star-container{-webkit-transition:all none;transition:all none}.rating.immediately .star-container .star,.rating.immediately .star-container .star i,.rating.immediately .star-container .star svg{-webkit-transition:none;transition:none}.rating.noticeable .star-container,.rating.noticeable .star-container .star,.rating.noticeable .star-container .star i,.rating.noticeable .star-container .star svg{-webkit-transition:all .3s ease;transition:all .3s ease}.rating.slow .star-container,.rating.slow .star-container .star,.rating.slow .star-container .star i,.rating.slow .star-container .star svg{-webkit-transition:all .8s ease;transition:all .8s ease}.rating.theme-kununu{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;width:78px}.rating.theme-kununu .label-value,.rating.theme-kununu .star-container{width:100%}.rating.theme-kununu .label-value{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;border-radius:6px 6px 0 0;height:50px;border:1px solid #e9ecec;border-bottom:0;font-size:18px;font-weight:700;color:#2f3940;letter-spacing:-1px;background-color:#f8f8f8}.rating.theme-kununu .star-container{border-radius:0 0 6px 6px;padding:2px 0 4px;margin-left:0;margin-right:0;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;background-color:#99c613;border:1px solid #99c613;border-bottom:0}.rating.theme-kununu .star-container .star{height:11px;width:11px}.rating.theme-kununu .star-container .star i{font-size:11px;color:#fff;text-align:center}.rating.theme-google-places .label-value{color:#e7711b;font-family:arial,sans-serif;font-size:13px;line-height:15px}.rating.theme-google-places .star-container{width:65px;margin-left:2px}.rating.theme-google-places .star-container .star i{font-size:17px;color:#e7711b!important}.rating.theme-google-places .star-container .star i.star-empty{opacity:1!important;color:#e1e1e1!important}.rating.theme-google-places .star-container .star i.star-empty:before{content:"★"}.rating.theme-google-places .star-container .star i.star-half{width:7px;overflow:hidden}.rating.theme-google-places .star-container .star i.star-filled:before,.rating.theme-google-places .star-container .star i.star-half:before{content:"★"}.rating.theme-rolling-stars .star-container .star{-webkit-transition:-webkit-transform 1s;transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s;-webkit-transform:rotate(0deg);transform:rotate(0deg)}.rating.theme-rolling-stars.value-0.half .star:nth-child(1),.rating.theme-rolling-stars.value-1 .star-container .star:nth-child(-n+1),.rating.theme-rolling-stars.value-1.half .star-container .star:nth-child(2),.rating.theme-rolling-stars.value-2 .star-container .star:nth-child(-n+2),.rating.theme-rolling-stars.value-2.half .star-container .star:nth-child(3),.rating.theme-rolling-stars.value-3 .star-container .star:nth-child(-n+3),.rating.theme-rolling-stars.value-3.half .star-container .star:nth-child(4),.rating.theme-rolling-stars.value-4 .star-container .star:nth-child(-n+4),.rating.theme-rolling-stars.value-4.half .star-container .star:nth-child(5),.rating.theme-rolling-stars.value-5 .star-container .star:nth-child(-n+5),.rating.theme-rolling-stars.value-5.half .star-container .star:nth-child(6),.rating.theme-rolling-stars.value-6 .star-container .star:nth-child(-n+6),.rating.value-0.half .rating.theme-rolling-stars.value-0.star:nth-child(1) .star:nth-child(1),.rating.value-0.half .rating.theme-rolling-stars.value-1.star:nth-child(1) .star-container .star:nth-child(2),.rating.value-0.half .rating.theme-rolling-stars.value-2.star:nth-child(1) .star-container .star:nth-child(3),.rating.value-0.half .rating.theme-rolling-stars.value-3.star:nth-child(1) .star-container .star:nth-child(4),.rating.value-0.half .rating.theme-rolling-stars.value-4.star:nth-child(1) .star-container .star:nth-child(5),.rating.value-0.half .rating.theme-rolling-stars.value-5.star:nth-child(1) .star-container .star:nth-child(6),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(2) .star:nth-child(1),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(2) .star-container .star:nth-child(2),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(2) .star-container .star:nth-child(3),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(2) .star-container .star:nth-child(4),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(2) .star-container .star:nth-child(5),.rating.value-1.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(2) .star-container .star:nth-child(6),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(3) .star:nth-child(1),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(3) .star-container .star:nth-child(2),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(3) .star-container .star:nth-child(3),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(3) .star-container .star:nth-child(4),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(3) .star-container .star:nth-child(5),.rating.value-2.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(3) .star-container .star:nth-child(6),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(4) .star:nth-child(1),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(4) .star-container .star:nth-child(2),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(4) .star-container .star:nth-child(3),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(4) .star-container .star:nth-child(4),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(4) .star-container .star:nth-child(5),.rating.value-3.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(4) .star-container .star:nth-child(6),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(5) .star:nth-child(1),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(5) .star-container .star:nth-child(2),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(5) .star-container .star:nth-child(3),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(5) .star-container .star:nth-child(4),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(5) .star-container .star:nth-child(5),.rating.value-4.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(5) .star-container .star:nth-child(6),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-0.star:nth-child(6) .star:nth-child(1),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-1.star:nth-child(6) .star-container .star:nth-child(2),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-2.star:nth-child(6) .star-container .star:nth-child(3),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-3.star:nth-child(6) .star-container .star:nth-child(4),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-4.star:nth-child(6) .star-container .star:nth-child(5),.rating.value-5.half .star-container .rating.theme-rolling-stars.value-5.star:nth-child(6) .star-container .star:nth-child(6){-webkit-transition:-webkit-transform 1s;transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s;-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+  `],
+    }),
+    __metadata("design:paramtypes", [])
+], StarRatingComponent);
+exports.StarRatingComponent = StarRatingComponent;
+var StarRatingComponent_1;
+//# sourceMappingURL=star-rating.component.js.map
 
 /***/ }),
 
@@ -82075,6 +81785,858 @@ __webpack_require__.r(__webpack_exports__);
 
 //# sourceMappingURL=index.js.map
 
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/Observable.js":
+/*!**************************************************!*\
+  !*** ./node_modules/rxjs/internal/Observable.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var toSubscriber_1 = __webpack_require__(/*! ./util/toSubscriber */ "./node_modules/rxjs/internal/util/toSubscriber.js");
+var observable_1 = __webpack_require__(/*! ../internal/symbol/observable */ "./node_modules/rxjs/internal/symbol/observable.js");
+var pipe_1 = __webpack_require__(/*! ./util/pipe */ "./node_modules/rxjs/internal/util/pipe.js");
+var config_1 = __webpack_require__(/*! ./config */ "./node_modules/rxjs/internal/config.js");
+var Observable = (function () {
+    function Observable(subscribe) {
+        this._isScalar = false;
+        if (subscribe) {
+            this._subscribe = subscribe;
+        }
+    }
+    Observable.prototype.lift = function (operator) {
+        var observable = new Observable();
+        observable.source = this;
+        observable.operator = operator;
+        return observable;
+    };
+    Observable.prototype.subscribe = function (observerOrNext, error, complete) {
+        var operator = this.operator;
+        var sink = toSubscriber_1.toSubscriber(observerOrNext, error, complete);
+        if (operator) {
+            operator.call(sink, this.source);
+        }
+        else {
+            sink.add(this.source || (config_1.config.useDeprecatedSynchronousErrorHandling && !sink.syncErrorThrowable) ?
+                this._subscribe(sink) :
+                this._trySubscribe(sink));
+        }
+        if (config_1.config.useDeprecatedSynchronousErrorHandling) {
+            if (sink.syncErrorThrowable) {
+                sink.syncErrorThrowable = false;
+                if (sink.syncErrorThrown) {
+                    throw sink.syncErrorValue;
+                }
+            }
+        }
+        return sink;
+    };
+    Observable.prototype._trySubscribe = function (sink) {
+        try {
+            return this._subscribe(sink);
+        }
+        catch (err) {
+            if (config_1.config.useDeprecatedSynchronousErrorHandling) {
+                sink.syncErrorThrown = true;
+                sink.syncErrorValue = err;
+            }
+            sink.error(err);
+        }
+    };
+    Observable.prototype.forEach = function (next, promiseCtor) {
+        var _this = this;
+        promiseCtor = getPromiseCtor(promiseCtor);
+        return new promiseCtor(function (resolve, reject) {
+            var subscription;
+            subscription = _this.subscribe(function (value) {
+                try {
+                    next(value);
+                }
+                catch (err) {
+                    reject(err);
+                    if (subscription) {
+                        subscription.unsubscribe();
+                    }
+                }
+            }, reject, resolve);
+        });
+    };
+    Observable.prototype._subscribe = function (subscriber) {
+        var source = this.source;
+        return source && source.subscribe(subscriber);
+    };
+    Observable.prototype[observable_1.observable] = function () {
+        return this;
+    };
+    Observable.prototype.pipe = function () {
+        var operations = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            operations[_i] = arguments[_i];
+        }
+        if (operations.length === 0) {
+            return this;
+        }
+        return pipe_1.pipeFromArray(operations)(this);
+    };
+    Observable.prototype.toPromise = function (promiseCtor) {
+        var _this = this;
+        promiseCtor = getPromiseCtor(promiseCtor);
+        return new promiseCtor(function (resolve, reject) {
+            var value;
+            _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
+        });
+    };
+    Observable.create = function (subscribe) {
+        return new Observable(subscribe);
+    };
+    return Observable;
+}());
+exports.Observable = Observable;
+function getPromiseCtor(promiseCtor) {
+    if (!promiseCtor) {
+        promiseCtor = config_1.config.Promise || Promise;
+    }
+    if (!promiseCtor) {
+        throw new Error('no Promise impl found');
+    }
+    return promiseCtor;
+}
+//# sourceMappingURL=Observable.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/Observer.js":
+/*!************************************************!*\
+  !*** ./node_modules/rxjs/internal/Observer.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var config_1 = __webpack_require__(/*! ./config */ "./node_modules/rxjs/internal/config.js");
+var hostReportError_1 = __webpack_require__(/*! ./util/hostReportError */ "./node_modules/rxjs/internal/util/hostReportError.js");
+exports.empty = {
+    closed: true,
+    next: function (value) { },
+    error: function (err) {
+        if (config_1.config.useDeprecatedSynchronousErrorHandling) {
+            throw err;
+        }
+        else {
+            hostReportError_1.hostReportError(err);
+        }
+    },
+    complete: function () { }
+};
+//# sourceMappingURL=Observer.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/Subscriber.js":
+/*!**************************************************!*\
+  !*** ./node_modules/rxjs/internal/Subscriber.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var isFunction_1 = __webpack_require__(/*! ./util/isFunction */ "./node_modules/rxjs/internal/util/isFunction.js");
+var Observer_1 = __webpack_require__(/*! ./Observer */ "./node_modules/rxjs/internal/Observer.js");
+var Subscription_1 = __webpack_require__(/*! ./Subscription */ "./node_modules/rxjs/internal/Subscription.js");
+var rxSubscriber_1 = __webpack_require__(/*! ../internal/symbol/rxSubscriber */ "./node_modules/rxjs/internal/symbol/rxSubscriber.js");
+var config_1 = __webpack_require__(/*! ./config */ "./node_modules/rxjs/internal/config.js");
+var hostReportError_1 = __webpack_require__(/*! ./util/hostReportError */ "./node_modules/rxjs/internal/util/hostReportError.js");
+var Subscriber = (function (_super) {
+    __extends(Subscriber, _super);
+    function Subscriber(destinationOrNext, error, complete) {
+        var _this = _super.call(this) || this;
+        _this.syncErrorValue = null;
+        _this.syncErrorThrown = false;
+        _this.syncErrorThrowable = false;
+        _this.isStopped = false;
+        switch (arguments.length) {
+            case 0:
+                _this.destination = Observer_1.empty;
+                break;
+            case 1:
+                if (!destinationOrNext) {
+                    _this.destination = Observer_1.empty;
+                    break;
+                }
+                if (typeof destinationOrNext === 'object') {
+                    if (isTrustedSubscriber(destinationOrNext)) {
+                        var trustedSubscriber = destinationOrNext[rxSubscriber_1.rxSubscriber]();
+                        _this.syncErrorThrowable = trustedSubscriber.syncErrorThrowable;
+                        _this.destination = trustedSubscriber;
+                        trustedSubscriber.add(_this);
+                    }
+                    else {
+                        _this.syncErrorThrowable = true;
+                        _this.destination = new SafeSubscriber(_this, destinationOrNext);
+                    }
+                    break;
+                }
+            default:
+                _this.syncErrorThrowable = true;
+                _this.destination = new SafeSubscriber(_this, destinationOrNext, error, complete);
+                break;
+        }
+        return _this;
+    }
+    Subscriber.prototype[rxSubscriber_1.rxSubscriber] = function () { return this; };
+    Subscriber.create = function (next, error, complete) {
+        var subscriber = new Subscriber(next, error, complete);
+        subscriber.syncErrorThrowable = false;
+        return subscriber;
+    };
+    Subscriber.prototype.next = function (value) {
+        if (!this.isStopped) {
+            this._next(value);
+        }
+    };
+    Subscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            this.isStopped = true;
+            this._error(err);
+        }
+    };
+    Subscriber.prototype.complete = function () {
+        if (!this.isStopped) {
+            this.isStopped = true;
+            this._complete();
+        }
+    };
+    Subscriber.prototype.unsubscribe = function () {
+        if (this.closed) {
+            return;
+        }
+        this.isStopped = true;
+        _super.prototype.unsubscribe.call(this);
+    };
+    Subscriber.prototype._next = function (value) {
+        this.destination.next(value);
+    };
+    Subscriber.prototype._error = function (err) {
+        this.destination.error(err);
+        this.unsubscribe();
+    };
+    Subscriber.prototype._complete = function () {
+        this.destination.complete();
+        this.unsubscribe();
+    };
+    Subscriber.prototype._unsubscribeAndRecycle = function () {
+        var _a = this, _parent = _a._parent, _parents = _a._parents;
+        this._parent = null;
+        this._parents = null;
+        this.unsubscribe();
+        this.closed = false;
+        this.isStopped = false;
+        this._parent = _parent;
+        this._parents = _parents;
+        return this;
+    };
+    return Subscriber;
+}(Subscription_1.Subscription));
+exports.Subscriber = Subscriber;
+var SafeSubscriber = (function (_super) {
+    __extends(SafeSubscriber, _super);
+    function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
+        var _this = _super.call(this) || this;
+        _this._parentSubscriber = _parentSubscriber;
+        var next;
+        var context = _this;
+        if (isFunction_1.isFunction(observerOrNext)) {
+            next = observerOrNext;
+        }
+        else if (observerOrNext) {
+            next = observerOrNext.next;
+            error = observerOrNext.error;
+            complete = observerOrNext.complete;
+            if (observerOrNext !== Observer_1.empty) {
+                context = Object.create(observerOrNext);
+                if (isFunction_1.isFunction(context.unsubscribe)) {
+                    _this.add(context.unsubscribe.bind(context));
+                }
+                context.unsubscribe = _this.unsubscribe.bind(_this);
+            }
+        }
+        _this._context = context;
+        _this._next = next;
+        _this._error = error;
+        _this._complete = complete;
+        return _this;
+    }
+    SafeSubscriber.prototype.next = function (value) {
+        if (!this.isStopped && this._next) {
+            var _parentSubscriber = this._parentSubscriber;
+            if (!config_1.config.useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+                this.__tryOrUnsub(this._next, value);
+            }
+            else if (this.__tryOrSetError(_parentSubscriber, this._next, value)) {
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.error = function (err) {
+        if (!this.isStopped) {
+            var _parentSubscriber = this._parentSubscriber;
+            var useDeprecatedSynchronousErrorHandling = config_1.config.useDeprecatedSynchronousErrorHandling;
+            if (this._error) {
+                if (!useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+                    this.__tryOrUnsub(this._error, err);
+                    this.unsubscribe();
+                }
+                else {
+                    this.__tryOrSetError(_parentSubscriber, this._error, err);
+                    this.unsubscribe();
+                }
+            }
+            else if (!_parentSubscriber.syncErrorThrowable) {
+                this.unsubscribe();
+                if (useDeprecatedSynchronousErrorHandling) {
+                    throw err;
+                }
+                hostReportError_1.hostReportError(err);
+            }
+            else {
+                if (useDeprecatedSynchronousErrorHandling) {
+                    _parentSubscriber.syncErrorValue = err;
+                    _parentSubscriber.syncErrorThrown = true;
+                }
+                else {
+                    hostReportError_1.hostReportError(err);
+                }
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.complete = function () {
+        var _this = this;
+        if (!this.isStopped) {
+            var _parentSubscriber = this._parentSubscriber;
+            if (this._complete) {
+                var wrappedComplete = function () { return _this._complete.call(_this._context); };
+                if (!config_1.config.useDeprecatedSynchronousErrorHandling || !_parentSubscriber.syncErrorThrowable) {
+                    this.__tryOrUnsub(wrappedComplete);
+                    this.unsubscribe();
+                }
+                else {
+                    this.__tryOrSetError(_parentSubscriber, wrappedComplete);
+                    this.unsubscribe();
+                }
+            }
+            else {
+                this.unsubscribe();
+            }
+        }
+    };
+    SafeSubscriber.prototype.__tryOrUnsub = function (fn, value) {
+        try {
+            fn.call(this._context, value);
+        }
+        catch (err) {
+            this.unsubscribe();
+            if (config_1.config.useDeprecatedSynchronousErrorHandling) {
+                throw err;
+            }
+            else {
+                hostReportError_1.hostReportError(err);
+            }
+        }
+    };
+    SafeSubscriber.prototype.__tryOrSetError = function (parent, fn, value) {
+        if (!config_1.config.useDeprecatedSynchronousErrorHandling) {
+            throw new Error('bad call');
+        }
+        try {
+            fn.call(this._context, value);
+        }
+        catch (err) {
+            if (config_1.config.useDeprecatedSynchronousErrorHandling) {
+                parent.syncErrorValue = err;
+                parent.syncErrorThrown = true;
+                return true;
+            }
+            else {
+                hostReportError_1.hostReportError(err);
+                return true;
+            }
+        }
+        return false;
+    };
+    SafeSubscriber.prototype._unsubscribe = function () {
+        var _parentSubscriber = this._parentSubscriber;
+        this._context = null;
+        this._parentSubscriber = null;
+        _parentSubscriber.unsubscribe();
+    };
+    return SafeSubscriber;
+}(Subscriber));
+function isTrustedSubscriber(obj) {
+    return obj instanceof Subscriber || ('syncErrorThrowable' in obj && obj[rxSubscriber_1.rxSubscriber]);
+}
+//# sourceMappingURL=Subscriber.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/Subscription.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rxjs/internal/Subscription.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var isArray_1 = __webpack_require__(/*! ./util/isArray */ "./node_modules/rxjs/internal/util/isArray.js");
+var isObject_1 = __webpack_require__(/*! ./util/isObject */ "./node_modules/rxjs/internal/util/isObject.js");
+var isFunction_1 = __webpack_require__(/*! ./util/isFunction */ "./node_modules/rxjs/internal/util/isFunction.js");
+var tryCatch_1 = __webpack_require__(/*! ./util/tryCatch */ "./node_modules/rxjs/internal/util/tryCatch.js");
+var errorObject_1 = __webpack_require__(/*! ./util/errorObject */ "./node_modules/rxjs/internal/util/errorObject.js");
+var UnsubscriptionError_1 = __webpack_require__(/*! ./util/UnsubscriptionError */ "./node_modules/rxjs/internal/util/UnsubscriptionError.js");
+var Subscription = (function () {
+    function Subscription(unsubscribe) {
+        this.closed = false;
+        this._parent = null;
+        this._parents = null;
+        this._subscriptions = null;
+        if (unsubscribe) {
+            this._unsubscribe = unsubscribe;
+        }
+    }
+    Subscription.prototype.unsubscribe = function () {
+        var hasErrors = false;
+        var errors;
+        if (this.closed) {
+            return;
+        }
+        var _a = this, _parent = _a._parent, _parents = _a._parents, _unsubscribe = _a._unsubscribe, _subscriptions = _a._subscriptions;
+        this.closed = true;
+        this._parent = null;
+        this._parents = null;
+        this._subscriptions = null;
+        var index = -1;
+        var len = _parents ? _parents.length : 0;
+        while (_parent) {
+            _parent.remove(this);
+            _parent = ++index < len && _parents[index] || null;
+        }
+        if (isFunction_1.isFunction(_unsubscribe)) {
+            var trial = tryCatch_1.tryCatch(_unsubscribe).call(this);
+            if (trial === errorObject_1.errorObject) {
+                hasErrors = true;
+                errors = errors || (errorObject_1.errorObject.e instanceof UnsubscriptionError_1.UnsubscriptionError ?
+                    flattenUnsubscriptionErrors(errorObject_1.errorObject.e.errors) : [errorObject_1.errorObject.e]);
+            }
+        }
+        if (isArray_1.isArray(_subscriptions)) {
+            index = -1;
+            len = _subscriptions.length;
+            while (++index < len) {
+                var sub = _subscriptions[index];
+                if (isObject_1.isObject(sub)) {
+                    var trial = tryCatch_1.tryCatch(sub.unsubscribe).call(sub);
+                    if (trial === errorObject_1.errorObject) {
+                        hasErrors = true;
+                        errors = errors || [];
+                        var err = errorObject_1.errorObject.e;
+                        if (err instanceof UnsubscriptionError_1.UnsubscriptionError) {
+                            errors = errors.concat(flattenUnsubscriptionErrors(err.errors));
+                        }
+                        else {
+                            errors.push(err);
+                        }
+                    }
+                }
+            }
+        }
+        if (hasErrors) {
+            throw new UnsubscriptionError_1.UnsubscriptionError(errors);
+        }
+    };
+    Subscription.prototype.add = function (teardown) {
+        if (!teardown || (teardown === Subscription.EMPTY)) {
+            return Subscription.EMPTY;
+        }
+        if (teardown === this) {
+            return this;
+        }
+        var subscription = teardown;
+        switch (typeof teardown) {
+            case 'function':
+                subscription = new Subscription(teardown);
+            case 'object':
+                if (subscription.closed || typeof subscription.unsubscribe !== 'function') {
+                    return subscription;
+                }
+                else if (this.closed) {
+                    subscription.unsubscribe();
+                    return subscription;
+                }
+                else if (typeof subscription._addParent !== 'function') {
+                    var tmp = subscription;
+                    subscription = new Subscription();
+                    subscription._subscriptions = [tmp];
+                }
+                break;
+            default:
+                throw new Error('unrecognized teardown ' + teardown + ' added to Subscription.');
+        }
+        var subscriptions = this._subscriptions || (this._subscriptions = []);
+        subscriptions.push(subscription);
+        subscription._addParent(this);
+        return subscription;
+    };
+    Subscription.prototype.remove = function (subscription) {
+        var subscriptions = this._subscriptions;
+        if (subscriptions) {
+            var subscriptionIndex = subscriptions.indexOf(subscription);
+            if (subscriptionIndex !== -1) {
+                subscriptions.splice(subscriptionIndex, 1);
+            }
+        }
+    };
+    Subscription.prototype._addParent = function (parent) {
+        var _a = this, _parent = _a._parent, _parents = _a._parents;
+        if (!_parent || _parent === parent) {
+            this._parent = parent;
+        }
+        else if (!_parents) {
+            this._parents = [parent];
+        }
+        else if (_parents.indexOf(parent) === -1) {
+            _parents.push(parent);
+        }
+    };
+    Subscription.EMPTY = (function (empty) {
+        empty.closed = true;
+        return empty;
+    }(new Subscription()));
+    return Subscription;
+}());
+exports.Subscription = Subscription;
+function flattenUnsubscriptionErrors(errors) {
+    return errors.reduce(function (errs, err) { return errs.concat((err instanceof UnsubscriptionError_1.UnsubscriptionError) ? err.errors : err); }, []);
+}
+//# sourceMappingURL=Subscription.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/config.js":
+/*!**********************************************!*\
+  !*** ./node_modules/rxjs/internal/config.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var _enable_super_gross_mode_that_will_cause_bad_things = false;
+exports.config = {
+    Promise: undefined,
+    set useDeprecatedSynchronousErrorHandling(value) {
+        if (value) {
+            var error = new Error();
+            console.warn('DEPRECATED! RxJS was set to use deprecated synchronous error handling behavior by code at: \n' + error.stack);
+        }
+        else if (_enable_super_gross_mode_that_will_cause_bad_things) {
+            console.log('RxJS: Back to a better error behavior. Thank you. <3');
+        }
+        _enable_super_gross_mode_that_will_cause_bad_things = value;
+    },
+    get useDeprecatedSynchronousErrorHandling() {
+        return _enable_super_gross_mode_that_will_cause_bad_things;
+    },
+};
+//# sourceMappingURL=config.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/symbol/observable.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/rxjs/internal/symbol/observable.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.observable = typeof Symbol === 'function' && Symbol.observable || '@@observable';
+//# sourceMappingURL=observable.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/symbol/rxSubscriber.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/rxjs/internal/symbol/rxSubscriber.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'function')
+    ? Symbol.for('rxSubscriber')
+    : '@@rxSubscriber';
+exports.$$rxSubscriber = exports.rxSubscriber;
+//# sourceMappingURL=rxSubscriber.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/UnsubscriptionError.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/UnsubscriptionError.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+var UnsubscriptionError = (function (_super) {
+    __extends(UnsubscriptionError, _super);
+    function UnsubscriptionError(errors) {
+        var _this = _super.call(this, errors ?
+            errors.length + " errors occurred during unsubscription:\n  " + errors.map(function (err, i) { return i + 1 + ") " + err.toString(); }).join('\n  ') : '') || this;
+        _this.errors = errors;
+        _this.name = 'UnsubscriptionError';
+        Object.setPrototypeOf(_this, UnsubscriptionError.prototype);
+        return _this;
+    }
+    return UnsubscriptionError;
+}(Error));
+exports.UnsubscriptionError = UnsubscriptionError;
+//# sourceMappingURL=UnsubscriptionError.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/errorObject.js":
+/*!********************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/errorObject.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.errorObject = { e: {} };
+//# sourceMappingURL=errorObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/hostReportError.js":
+/*!************************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/hostReportError.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function hostReportError(err) {
+    setTimeout(function () { throw err; });
+}
+exports.hostReportError = hostReportError;
+//# sourceMappingURL=hostReportError.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/isArray.js":
+/*!****************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/isArray.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isArray = Array.isArray || (function (x) { return x && typeof x.length === 'number'; });
+//# sourceMappingURL=isArray.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/isFunction.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/isFunction.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function isFunction(x) {
+    return typeof x === 'function';
+}
+exports.isFunction = isFunction;
+//# sourceMappingURL=isFunction.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/isObject.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/isObject.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function isObject(x) {
+    return x != null && typeof x === 'object';
+}
+exports.isObject = isObject;
+//# sourceMappingURL=isObject.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/noop.js":
+/*!*************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/noop.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function noop() { }
+exports.noop = noop;
+//# sourceMappingURL=noop.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/pipe.js":
+/*!*************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/pipe.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var noop_1 = __webpack_require__(/*! ./noop */ "./node_modules/rxjs/internal/util/noop.js");
+function pipe() {
+    var fns = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        fns[_i] = arguments[_i];
+    }
+    return pipeFromArray(fns);
+}
+exports.pipe = pipe;
+function pipeFromArray(fns) {
+    if (!fns) {
+        return noop_1.noop;
+    }
+    if (fns.length === 1) {
+        return fns[0];
+    }
+    return function piped(input) {
+        return fns.reduce(function (prev, fn) { return fn(prev); }, input);
+    };
+}
+exports.pipeFromArray = pipeFromArray;
+//# sourceMappingURL=pipe.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/toSubscriber.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/toSubscriber.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Subscriber_1 = __webpack_require__(/*! ../Subscriber */ "./node_modules/rxjs/internal/Subscriber.js");
+var rxSubscriber_1 = __webpack_require__(/*! ../symbol/rxSubscriber */ "./node_modules/rxjs/internal/symbol/rxSubscriber.js");
+var Observer_1 = __webpack_require__(/*! ../Observer */ "./node_modules/rxjs/internal/Observer.js");
+function toSubscriber(nextOrObserver, error, complete) {
+    if (nextOrObserver) {
+        if (nextOrObserver instanceof Subscriber_1.Subscriber) {
+            return nextOrObserver;
+        }
+        if (nextOrObserver[rxSubscriber_1.rxSubscriber]) {
+            return nextOrObserver[rxSubscriber_1.rxSubscriber]();
+        }
+    }
+    if (!nextOrObserver && !error && !complete) {
+        return new Subscriber_1.Subscriber(Observer_1.empty);
+    }
+    return new Subscriber_1.Subscriber(nextOrObserver, error, complete);
+}
+exports.toSubscriber = toSubscriber;
+//# sourceMappingURL=toSubscriber.js.map
+
+/***/ }),
+
+/***/ "./node_modules/rxjs/internal/util/tryCatch.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/rxjs/internal/util/tryCatch.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var errorObject_1 = __webpack_require__(/*! ./errorObject */ "./node_modules/rxjs/internal/util/errorObject.js");
+var tryCatchTarget;
+function tryCatcher() {
+    try {
+        return tryCatchTarget.apply(this, arguments);
+    }
+    catch (e) {
+        errorObject_1.errorObject.e = e;
+        return errorObject_1.errorObject;
+    }
+}
+function tryCatch(fn) {
+    tryCatchTarget = fn;
+    return tryCatcher;
+}
+exports.tryCatch = tryCatch;
+//# sourceMappingURL=tryCatch.js.map
 
 /***/ }),
 
