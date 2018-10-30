@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { StarRatingModule } from 'angular-star-rating';
 import { AvaliacaoFilmesComponent } from './avaliacao-filmes.component';
 import { LoadImageDirective } from './directives/loadimage.directive';
-import { StarRatingModule } from 'angular-star-rating';
+
 @NgModule({
   imports: [
     CommonModule,
