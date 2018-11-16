@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/forms';
 import { Router } from '@angular/router';
 import { Validator } from 'class-validator';
+import { ConfigService } from 'src/app/resources/config.service';
 import { Usuario } from '../models/usuario.model';
 import { Genero } from './../models/gerero.model';
 
@@ -22,7 +23,8 @@ export class CadastroComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private validator: Validator,
-    private router: Router
+    private router: Router,
+    private configUrl: ConfigService
   ) { }
 
   ngOnInit() {
@@ -43,7 +45,7 @@ export class CadastroComponent implements OnInit {
   }
 
   enviarDadosCadastrados(usuario: Usuario): void {
-    const url = `http://200.98.71.158:888/tcc/api/usuario/criar.php`;
+    const url = `${this.configUrl.baseUrl}usuario/criar.php`;
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -52,12 +54,26 @@ export class CadastroComponent implements OnInit {
       })
     };
 
-    this.http.post<{ results: Array<any> }>(url, JSON.stringify(usuario), httpOptions)
-      .subscribe(dados => this.router.navigate(['/avaliacao-filmes'], {
+    this.http.post<{ results: Array<any> }>(url, JSON.stringify(usuario), httpOptions).subscribe((dados: any) => {
+
+      // Variaveis
+      const erro: string = dados.resultado;
+      const mensagemErro: string = dados.resultado_str;
+      const resultado: any = dados.results;
+
+      // Guardas
+      if (erro === 'ERR-BD') {
+        return alert(mensagemErro);
+      }
+
+      // Logica
+      this.router.navigate(['/avaliacao-filmes'], {
         queryParams: {
-          filmes: JSON.stringify(dados.results)
+          filmes: JSON.stringify(resultado)
         }
-      }));
+      });
+
+    });
   }
 
   onSubmit(form: NgForm): void {
@@ -77,7 +93,7 @@ export class CadastroComponent implements OnInit {
 
   carregaGeneros() {
 
-    const url = `http://200.98.71.158:888/tcc/api/genero/`;
+    const url = `${this.configUrl.baseUrl}genero/`;
 
     this.http.get(url).subscribe((dados: Array<Genero>) => {
 

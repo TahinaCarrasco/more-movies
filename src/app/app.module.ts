@@ -6,6 +6,7 @@ import { Validator } from 'class-validator';
 import { AppRoutingModule } from 'src/app/app.routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
+import { ConfigService } from './resources/config.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PagesModule } from './pages/pages.module';
     HttpClientModule
   ],
   providers: [
-    Validator
+    Validator,
+    ConfigService
   ],
   bootstrap: [AppComponent]
 })
