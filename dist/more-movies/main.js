@@ -101,12 +101,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/app.routing.module */ "./src/app/app.routing.module.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _pages_pages_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/pages.module */ "./src/app/pages/pages.module.ts");
+/* harmony import */ var _resources_config_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./resources/config.service */ "./src/app/resources/config.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -131,7 +133,8 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClientModule"]
             ],
             providers: [
-                class_validator__WEBPACK_IMPORTED_MODULE_4__["Validator"]
+                class_validator__WEBPACK_IMPORTED_MODULE_4__["Validator"],
+                _resources_config_service__WEBPACK_IMPORTED_MODULE_8__["ConfigService"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
@@ -296,10 +299,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./avaliacao-filmes.component */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.ts");
-/* harmony import */ var _directives_loadimage_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./directives/loadimage.directive */ "./src/app/pages/avaliacao-filmes/directives/loadimage.directive.ts");
-/* harmony import */ var angular_star_rating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-star-rating */ "./node_modules/angular-star-rating/dist/index.js");
-/* harmony import */ var angular_star_rating__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular_star_rating__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var angular_star_rating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-star-rating */ "./node_modules/angular-star-rating/dist/index.js");
+/* harmony import */ var angular_star_rating__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular_star_rating__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./avaliacao-filmes.component */ "./src/app/pages/avaliacao-filmes/avaliacao-filmes.component.ts");
+/* harmony import */ var _directives_loadimage_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./directives/loadimage.directive */ "./src/app/pages/avaliacao-filmes/directives/loadimage.directive.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -320,13 +323,13 @@ var AvaliacaoFilmesModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_0__["CommonModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
-                angular_star_rating__WEBPACK_IMPORTED_MODULE_5__["StarRatingModule"].forRoot()
+                angular_star_rating__WEBPACK_IMPORTED_MODULE_3__["StarRatingModule"].forRoot()
             ],
             declarations: [
-                _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__["AvaliacaoFilmesComponent"],
-                _directives_loadimage_directive__WEBPACK_IMPORTED_MODULE_4__["LoadImageDirective"]
+                _avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__["AvaliacaoFilmesComponent"],
+                _directives_loadimage_directive__WEBPACK_IMPORTED_MODULE_5__["LoadImageDirective"]
             ],
-            exports: [_avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_3__["AvaliacaoFilmesComponent"]],
+            exports: [_avaliacao_filmes_component__WEBPACK_IMPORTED_MODULE_4__["AvaliacaoFilmesComponent"]],
         })
     ], AvaliacaoFilmesModule);
     return AvaliacaoFilmesModule;
@@ -426,7 +429,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! class-validator */ "./node_modules/class-validator/index.js");
 /* harmony import */ var class_validator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(class_validator__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/usuario.model */ "./src/app/pages/models/usuario.model.ts");
+/* harmony import */ var src_app_resources_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/resources/config.service */ "./src/app/resources/config.service.ts");
+/* harmony import */ var _models_usuario_model__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/usuario.model */ "./src/app/pages/models/usuario.model.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -441,13 +445,15 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var CadastroComponent = /** @class */ (function () {
-    function CadastroComponent(http, validator, router) {
+    function CadastroComponent(http, validator, router, configUrl) {
         this.http = http;
         this.validator = validator;
         this.router = router;
+        this.configUrl = configUrl;
         this.isGeneros = new Array();
-        this.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"]();
+        this.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_5__["Usuario"]();
         this.formValid = false;
         this.submit = false;
     }
@@ -465,19 +471,29 @@ var CadastroComponent = /** @class */ (function () {
     };
     CadastroComponent.prototype.enviarDadosCadastrados = function (usuario) {
         var _this = this;
-        var url = "http://200.98.71.158:888/tcc/api/usuario/criar.php";
+        var url = this.configUrl.baseUrl + "usuario/criar.php";
         var httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer 123456'
             })
         };
-        this.http.post(url, JSON.stringify(usuario), httpOptions)
-            .subscribe(function (dados) { return _this.router.navigate(['/avaliacao-filmes'], {
-            queryParams: {
-                filmes: JSON.stringify(dados.results)
+        this.http.post(url, JSON.stringify(usuario), httpOptions).subscribe(function (dados) {
+            // Variaveis
+            var erro = dados.resultado;
+            var mensagemErro = dados.resultado_str;
+            var resultado = dados.results;
+            // Guardas
+            if (erro === 'ERR-BD') {
+                return alert(mensagemErro);
             }
-        }); });
+            // Logica
+            _this.router.navigate(['/avaliacao-filmes'], {
+                queryParams: {
+                    filmes: JSON.stringify(resultado)
+                }
+            });
+        });
     };
     CadastroComponent.prototype.onSubmit = function (form) {
         this.formValid = form.valid;
@@ -495,7 +511,7 @@ var CadastroComponent = /** @class */ (function () {
     });
     CadastroComponent.prototype.carregaGeneros = function () {
         var _this = this;
-        var url = "http://200.98.71.158:888/tcc/api/genero/";
+        var url = this.configUrl.baseUrl + "genero/";
         this.http.get(url).subscribe(function (dados) {
             dados.forEach(function (dado) {
                 _this.isGeneros.push(dado);
@@ -512,7 +528,8 @@ var CadastroComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"],
             class_validator__WEBPACK_IMPORTED_MODULE_3__["Validator"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            src_app_resources_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]])
     ], CadastroComponent);
     return CadastroComponent;
 }());
@@ -726,6 +743,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _models_usuario_model__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../models/usuario.model */ "./src/app/pages/models/usuario.model.ts");
+/* harmony import */ var _resources_config_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../resources/config.service */ "./src/app/resources/config.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -739,10 +757,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent(router, http) {
+    function LoginComponent(router, http, configService) {
         this.router = router;
         this.http = http;
+        this.configService = configService;
     }
     LoginComponent.prototype.ngOnInit = function () {
         if (!this.usuario) {
@@ -756,11 +776,10 @@ var LoginComponent = /** @class */ (function () {
     };
     LoginComponent.prototype.postLogin = function (email, senha) {
         var _this = this;
-        var url = "http://200.98.71.158:888/tcc/api/usuario/login.php";
+        var url = this.configService.baseUrl + "usuario/login.php";
         var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpParams"]({ fromString: "email=" + email + "&senha=" + senha });
         this.http.get(url, { params: params }).subscribe(function (response) {
-            console.log('aqui ', response);
-            (!response) ? _this.router.navigate(['/home']) : alert(response);
+            (!response) ? _this.router.navigate(['/home']) : alert(response.message);
         });
     };
     LoginComponent = __decorate([
@@ -770,7 +789,8 @@ var LoginComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./login.component.scss */ "./src/app/pages/login/login.component.scss")]
         }),
         __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"]])
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpClient"],
+            _resources_config_service__WEBPACK_IMPORTED_MODULE_4__["ConfigService"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1191,6 +1211,44 @@ var PagesRoutingModule = /** @class */ (function () {
         })
     ], PagesRoutingModule);
     return PagesRoutingModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/resources/config.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/resources/config.service.ts ***!
+  \*********************************************/
+/*! exports provided: ConfigService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigService", function() { return ConfigService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var ConfigService = /** @class */ (function () {
+    function ConfigService() {
+    }
+    Object.defineProperty(ConfigService.prototype, "baseUrl", {
+        get: function () {
+            return 'https://more-movies-api.herokuapp.com/api/';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ConfigService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+    ], ConfigService);
+    return ConfigService;
 }());
 
 
