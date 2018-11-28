@@ -22,7 +22,7 @@ $color-blue: rgb(86, 166, 220);
     color: $color-blue;
     font-size: 16px;
   }
-  
+
   .formulario-cadastro {
     display: flex;
     justify-content: space-around;
@@ -36,7 +36,7 @@ $color-blue: rgb(86, 166, 220);
         text-align: left;
       }
     }
-  
+
     .primeiro-passo {
       width: 50%;
       border-right: 2px solid $color-blue;
@@ -48,7 +48,7 @@ $color-blue: rgb(86, 166, 220);
       width: 50%;
       height: inherit;
       align-self: center;
-      margin-left: 5%;     
+      margin-left: 5%;
 
     }
 
@@ -69,7 +69,7 @@ $color-blue: rgb(86, 166, 220);
     }
 
     .has-error {
-      border-color: red; 
+      border-color: red;
     }
 
     .has-error-sexo{
@@ -82,7 +82,7 @@ $color-blue: rgb(86, 166, 220);
     display: flex;
     justify-content: center;
     margin-right: 5%;
-    
+
     div {
       margin-right: 15px;
     }
@@ -98,13 +98,13 @@ $color-blue: rgb(86, 166, 220);
         color: red;
       }
     }
-    
+
     .selecione-generos {
       display: flex;
       flex-wrap: wrap;
       width: 100%;
       padding: 10px 0;
-      
+
       .form-check {
         width: 50%;
         text-align: start;
@@ -185,4 +185,13 @@ $color-blue: rgb(86, 166, 220);
   right: 2%;
   color: $color-blue !important;
   cursor: pointer;
+}
+
+.campos-renda-data {
+  display: flex;
+
+  #profissao {
+    margin-right: 15px;
+  }
+
 }
