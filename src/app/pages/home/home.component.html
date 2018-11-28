@@ -1,5 +1,5 @@
 <section class="container-home">
-  <h3>Recomendações pra você</h3>
+  <h3>FILMES RECOMENDADOS PARA VOCÊ</h3>
   <div class="cards-filmes">
     <div
       class="card-filme"
@@ -7,7 +7,7 @@
     >
       <img
         title="{{filme.title}} - {{filme.overview}}"
-        [appLoadImage]="sanitizeUrls(filme.poster_path)"
+        src="https://image.tmdb.org/t/p/w200/{{filme.poster_path}}"
       />
     </div>
   </div>

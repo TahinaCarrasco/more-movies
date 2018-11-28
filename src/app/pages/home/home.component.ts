@@ -9,7 +9,7 @@ import { Filme } from 'src/app/pages/models/filme.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
 
@@ -38,11 +38,11 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  sanitizeUrls(url: string): string {
+  // sanitizeUrls(url: string): string {
 
-    const remoteUrl = 'https://image.tmdb.org/t/p/w200/';
-    return `${remoteUrl}${url.substr(0, 1) === '/' ? url.substr(1, url.length) : url}`;
-  }
+  //   const remoteUrl = 'https://image.tmdb.org/t/p/w200';
+  //   return remoteUrl;
+  // }
 
   ratio(point): number {
     return this.average * point;
