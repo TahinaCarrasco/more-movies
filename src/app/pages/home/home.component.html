@@ -1,11 +1,14 @@
-
 <section class="container-home">
-  <h3>HOME</h3>
-
+  <h3>Recomendações pra você</h3>
   <div class="cards-filmes">
-    <div *ngFor="let filme of filmes">
-      <img class="card-filme" title="{{filme.title}} - {{filme.overview}}" src="https://image.tmdb.org/t/p/w200/{{filme.poster_path}}"/>
-        <!-- {{filme.title}} -->
+    <div
+      class="card-filme"
+      *ngFor="let filme of filmes$ | async"
+    >
+      <img
+        title="{{filme.title}} - {{filme.overview}}"
+        [appLoadImage]="sanitizeUrls(filme.poster_path)"
+      />
     </div>
   </div>
 </section>

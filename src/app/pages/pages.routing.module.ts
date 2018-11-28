@@ -25,7 +25,7 @@ const pageRoutes: Routes = [
     component: AvaliacaoFilmesComponent
   },
   {
-    path: 'home',
+    path: 'recomendacoes',
     component: HomeComponent
   }
 ];
