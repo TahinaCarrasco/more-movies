@@ -38,12 +38,6 @@ export class HomeComponent implements OnInit {
       );
   }
 
-  // sanitizeUrls(url: string): string {
-
-  //   const remoteUrl = 'https://image.tmdb.org/t/p/w200';
-  //   return remoteUrl;
-  // }
-
   ratio(point): number {
     return this.average * point;
   }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { of } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
@@ -19,7 +19,8 @@ export class AvaliacaoFilmesComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private routerLink: Router
   ) { }
 
   ngOnInit() {
@@ -46,6 +47,10 @@ export class AvaliacaoFilmesComponent implements OnInit {
 
   ratio(point): number {
     return this.average * point;
+  }
+
+  buscaRecomendacao(): void {
+    this.routerLink.navigate(['/recomendacoes']);
   }
 
 }
